@@ -3,10 +3,20 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 import Slider from "react-slick";
+import { useDispatch, useSelector } from "react-redux";
+import { hotelServiceState$ } from "../../../redux/selectors/HotelServiceSelector";
+import * as actions from "../../../redux/actions/HotelServiceAction";
 // import Logo from "../../../../public/assets/img/setup.jpg"
 export default function Header() {
   const [navbarRecommenedActive, setnavbarRecommenedActive] = useState(false);
   const [serviceBookingActive, setserviceBookingActive] = useState(false);
+  const dispatch = useDispatch();
+  const listService = useSelector(hotelServiceState$);
+  React.useEffect(() => {
+    console.log("Hello Son");
+    dispatch(actions.getHotelService.getHotelServiceRequest());
+    
+  }, [dispatch]);
   const navLinkStyle = ({ isActive }) => {
     return {
       color: isActive ? "rgba(173, 133, 75, 1)" : "rgba(255, 255, 255, 1)",
@@ -232,112 +242,22 @@ export default function Header() {
         <hr className="hr5" style={{ backgroundColor: "#AD854B" }} />
         <div className="service-outstanding-item">
           <Slider {...settings}>
-            <div className="card">
-              <img
-                className="card-img-top"
-                src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#">
-                  Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
+            {listService.map((service) => (
+              <div className="card" key={service.id}>
+                <img
+                  className="card-img-top"
+                  src={service.imageUrl}
+                  alt="Card image cap"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{service.title}</h5>
+                  <p className="card-text">{service.description}</p>
+                  <a href="#">
+                    Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
+                  </a>
+                </div>
               </div>
-            </div>
-
-            <div className="card">
-              <img
-                className="card-img-top"
-                src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#">
-                  Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-              </div>
-            </div>
-
-            <div className="card" style={{ width: "18rem" }}>
-              <img
-                className="card-img-top"
-                src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#">
-                  Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-              </div>
-            </div>
-            <div className="card" style={{ width: "18rem" }}>
-              <img
-                className="card-img-top"
-                src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#">
-                  Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-              </div>
-            </div>
-
-            <div className="card" style={{ width: "18rem" }}>
-              <img
-                className="card-img-top"
-                src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#">
-                  Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-              </div>
-            </div>
-
-            <div className="card" style={{ width: "18rem" }}>
-              <img
-                className="card-img-top"
-                src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#">
-                  Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-              </div>
-            </div>
+            ))}
           </Slider>
         </div>
       </div>
@@ -383,8 +303,10 @@ export default function Header() {
         </div>
       </div>
       <div className="footer-copyright">
-        
-        <p><i class="fa-regular fa-copyright"></i>2022 Five Men Hotel. All Rights Reserved.</p>
+        <p>
+          <i class="fa-regular fa-copyright"></i>2022 Five Men Hotel. All Rights
+          Reserved.
+        </p>
       </div>
       <div className="arrow-btn">
         <a href="#">
