@@ -8,14 +8,14 @@ import { hotelServiceState$ } from "../../../redux/selectors/HotelServiceSelecto
 import * as actions from "../../../redux/actions/HotelServiceAction";
 // import Logo from "../../../../public/assets/img/setup.jpg"
 export default function Header() {
-  const [navbarRecommenedActive, setnavbarRecommenedActive] = useState(false);
-  const [serviceBookingActive, setserviceBookingActive] = useState(false);
+  const [navbarRecommendActive, setNavbarRecommendActive] = useState(false);
+  const [serviceBookingActive, setServiceBookingActive] = useState(false);
   const dispatch = useDispatch();
   const listService = useSelector(hotelServiceState$);
   React.useEffect(() => {
     console.log("Hello Son");
     dispatch(actions.getHotelService.getHotelServiceRequest());
-    
+
   }, [dispatch]);
   const navLinkStyle = ({ isActive }) => {
     return {
@@ -24,11 +24,11 @@ export default function Header() {
   };
   const changeBackground = () => {
     if (window.scrollY >= 400) {
-      setnavbarRecommenedActive(true);
-      setserviceBookingActive(true);
+      setNavbarRecommendActive(true);
+      setServiceBookingActive(true);
     } else {
-      setnavbarRecommenedActive(false);
-      setserviceBookingActive(false);
+      setNavbarRecommendActive(false);
+      setServiceBookingActive(false);
     }
   };
   window.addEventListener("scroll", changeBackground);
@@ -36,10 +36,10 @@ export default function Header() {
     dots: true,
     infinite: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 10000,
+    speed: 1000,
+    autoplaySpeed: 3000,
     cssEase: "linear",
   };
   return (
@@ -48,12 +48,12 @@ export default function Header() {
         <div className="nav-bar">
           <div
             className={
-              navbarRecommenedActive
-                ? "nav-bar-recommened active"
-                : "nav-bar-recommened"
+              navbarRecommendActive
+                ? "nav-bar-recommend active"
+                : "nav-bar-recommend"
             }
           >
-            <span className="recommened-text">
+            <span className="recommend-text">
               Nhiều Chương Trình Khuyến Mãi Dành Riêng Cho Bạn
             </span>
             <button className="btn btn-primary recommened-btn">
@@ -243,75 +243,100 @@ export default function Header() {
         <div className="service-outstanding-item">
           <Slider {...settings}>
             {listService.map((service) => (
-              <div className="card" key={service.id}>
-                <img
-                  className="card-img-top"
-                  src={service.imageUrl}
-                  alt="Card image cap"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{service.title}</h5>
-                  <p className="card-text">{service.description}</p>
-                  <a href="#">
-                    Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
-                  </a>
-                </div>
-              </div>
+              <>
+                <div className="card" key={service.id}>
+                  <img
+                    className="card-img-top"
+                    src={service.imageUrl}
+                    alt="Card image cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">{service.title}</h5>
+                    <p className="card-text">{service.description}</p>
+                    <a href="#">
+                      Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div><div className="card">
+                  <img
+                    className="card-img-top"
+                    src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
+                    alt="Card image cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and make up
+                      the bulk of the card's content.
+                    </p>
+                    <a href="#">
+                      Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div><div className="card" style={{ width: "18rem" }}>
+                  <img
+                    className="card-img-top"
+                    src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
+                    alt="Card image cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and make up
+                      the bulk of the card's content.
+                    </p>
+                    <a href="#">
+                      Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div><div className="card" style={{ width: "18rem" }}>
+                  <img
+                    className="card-img-top"
+                    src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
+                    alt="Card cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and make up
+                      the bulk of the card's content.
+                    </p>
+                    <a href="#">
+                      Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div><div className="card" style={{ width: "18rem" }}>
+                  <img
+                    className="card-img-top"
+                    src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
+                    alt="Card cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and make up
+                      the bulk of the card's content.
+                    </p>
+                    <a href="#">
+                      Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div><div className="card" style={{ width: "18rem" }}>
+                  <img
+                    className="card-img-top"
+                    src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
+                    alt="Card cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">
+                      Some quick example text to build on the card title and make up
+                      the bulk of the card's content.
+                    </p>
+                    <a href="#">
+                      Xem Chi Tiết <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div></>
+
             ))}
+
           </Slider>
         </div>
-      </div>
-      <div className="footer">
-        <div className="row">
-          <div className="col-4 footer-item-logo"></div>
-          <div className="col-4 footer-item-info">
-            <p className="footer-item-info-brand">5 Men Hotel</p>
-            <p>
-              <i class="fa-solid fa-location-dot"></i> Đại Học FPT, quận 9
-            </p>
-            <p>
-              <i class="fa-solid fa-phone"></i> Đại Học FPT, quận 9
-            </p>
-            <p>
-              <i class="fa-solid fa-envelope"></i> Đại Học FPT, quận 9
-            </p>
-          </div>
-          <div className="col-4 footer-item-contact">
-            <p className="footer-item-contact-register">Đăng Ký</p>
-            <p className="footer-item-contact-text">
-              Đăng ký để nhận được thông tin mới nhất từ chúng tôi
-            </p>
-            <form>
-              <input type="email" name="email" placeholder="Email...." />
-              <button type="submit">
-                <i class="fa-solid fa-forward"></i>
-              </button>
-            </form>
-            <div className="footer-item-contact-social">
-              <i class="fa-brands fa-facebook"></i>
-              <i class="fa-brands fa-instagram"></i>
-            </div>
-          </div>
-        </div>
-        <hr className="hr6" />
-        <div className="footer-item-page">
-          <p>Trang Chủ</p>
-          <p>Giới Thiệu</p>
-          <p>Phòng</p>
-          <p>Tin Tức</p>
-          <p>Liên Hệ</p>
-        </div>
-      </div>
-      <div className="footer-copyright">
-        <p>
-          <i class="fa-regular fa-copyright"></i>2022 Five Men Hotel. All Rights
-          Reserved.
-        </p>
-      </div>
-      <div className="arrow-btn">
-        <a href="#">
-          <span className="fa-solid fa-angle-up"></span>
-        </a>
       </div>
     </div>
   );
