@@ -5,8 +5,8 @@ import "./style.css";
 import Slider from "react-slick";
 // import Logo from "../../../../public/assets/img/setup.jpg"
 export default function Header() {
-  const [navbarRecommenedActive, setnavbarRecommenedActive] = useState(false);
-  const [serviceBookingActive, setserviceBookingActive] = useState(false);
+  const [navbarRecommendActive, setNavbarRecommendActive] = useState(false);
+  const [serviceBookingActive, setServiceBookingActive] = useState(false);
   const navLinkStyle = ({ isActive }) => {
     return {
       color: isActive ? "rgba(173, 133, 75, 1)" : "rgba(255, 255, 255, 1)",
@@ -14,11 +14,11 @@ export default function Header() {
   };
   const changeBackground = () => {
     if (window.scrollY >= 400) {
-      setnavbarRecommenedActive(true);
-      setserviceBookingActive(true);
+      setNavbarRecommendActive(true);
+      setServiceBookingActive(true);
     } else {
-      setnavbarRecommenedActive(false);
-      setserviceBookingActive(false);
+      setNavbarRecommendActive(false);
+      setServiceBookingActive(false);
     }
   };
   window.addEventListener("scroll", changeBackground);
@@ -26,10 +26,10 @@ export default function Header() {
     dots: true,
     infinite: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 10000,
+    speed: 1000,
+    autoplaySpeed: 3000,
     cssEase: "linear",
   };
   return (
@@ -38,12 +38,12 @@ export default function Header() {
         <div className="nav-bar">
           <div
             className={
-              navbarRecommenedActive
-                ? "nav-bar-recommened active"
-                : "nav-bar-recommened"
+              navbarRecommendActive
+                ? "nav-bar-recommend active"
+                : "nav-bar-recommend"
             }
           >
-            <span className="recommened-text">
+            <span className="recommend-text">
               Nhiều Chương Trình Khuyến Mãi Dành Riêng Cho Bạn
             </span>
             <button className="btn btn-primary recommened-btn">
@@ -289,7 +289,7 @@ export default function Header() {
               <img
                 className="card-img-top"
                 src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
+                alt="Card cap"
               />
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
@@ -307,7 +307,7 @@ export default function Header() {
               <img
                 className="card-img-top"
                 src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
+                alt="Card cap"
               />
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
@@ -325,7 +325,7 @@ export default function Header() {
               <img
                 className="card-img-top"
                 src="https://i.ibb.co/Csg8Vvy/stick1.jpg"
-                alt="Card image cap"
+                alt="Card cap"
               />
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
@@ -383,7 +383,7 @@ export default function Header() {
         </div>
       </div>
       <div className="footer-copyright">
-        
+
         <p><i class="fa-regular fa-copyright"></i>2022 Five Men Hotel. All Rights Reserved.</p>
       </div>
       <div className="arrow-btn">
