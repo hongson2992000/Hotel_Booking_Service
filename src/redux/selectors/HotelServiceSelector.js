@@ -1,0 +1,1 @@
+export const hotelServiceState$ = (state) => state.OverviewServiceReducers.arrService
