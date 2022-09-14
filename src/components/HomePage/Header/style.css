@@ -28,7 +28,7 @@
 
 /**RECOMMENED**/
 
-.nav-bar-recommened {
+.nav-bar-recommend {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,16 +38,16 @@
     font-size: 14px;
 }
 
-.nav-bar-recommened.active {
+.nav-bar-recommend.active {
     display: none;
 }
 
-.nav-bar-recommened .recommened-text {
+.nav-bar-recommend .recommend-text {
     color: rgba(255, 255, 255, 1);
     padding-right: 5px;
 }
 
-.nav-bar-recommened .recommened-btn {
+.nav-bar-recommend .recommend-btn {
     color: rgba(3, 124, 255, 1);
     padding: 2px 10px;
     border-radius: 5px;

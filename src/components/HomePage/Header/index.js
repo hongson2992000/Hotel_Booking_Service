@@ -7,9 +7,11 @@ import ListHotelService from "../ListHotelService";
 import Footer from "../Footer";
 // import Logo from "../../../../public/assets/img/setup.jpg"
 export default function Header() {
-  const [navbarRecommenedActive, setnavbarRecommenedActive] = useState(false);
-  const [serviceBookingActive, setserviceBookingActive] = useState(false);
 
+
+  const [navbarRecommendActive, setNavbarRecommendActive] = useState(false);
+  const [serviceBookingActive, setServiceBookingActive] = useState(false);
+  
   const navLinkStyle = ({ isActive }) => {
     return {
       color: isActive ? "rgba(173, 133, 75, 1)" : "rgba(255, 255, 255, 1)",
@@ -17,11 +19,11 @@ export default function Header() {
   };
   const changeBackground = () => {
     if (window.scrollY >= 400) {
-      setnavbarRecommenedActive(true);
-      setserviceBookingActive(true);
+      setNavbarRecommendActive(true);
+      setServiceBookingActive(true);
     } else {
-      setnavbarRecommenedActive(false);
-      setserviceBookingActive(false);
+      setNavbarRecommendActive(false);
+      setServiceBookingActive(false);
     }
   };
   window.addEventListener("scroll", changeBackground);
@@ -32,12 +34,12 @@ export default function Header() {
         <div className="nav-bar">
           <div
             className={
-              navbarRecommenedActive
-                ? "nav-bar-recommened active"
-                : "nav-bar-recommened"
+              navbarRecommendActive
+                ? "nav-bar-recommend active"
+                : "nav-bar-recommend"
             }
           >
-            <span className="recommened-text">
+            <span className="recommend-text">
               Nhiều Chương Trình Khuyến Mãi Dành Riêng Cho Bạn
             </span>
             <button className="btn btn-primary recommened-btn">
@@ -220,6 +222,7 @@ export default function Header() {
           </div>
         </div>
       </div>
+
       <ListHotelService />
       <Footer />
       <div className="footer-copyright">
@@ -232,6 +235,8 @@ export default function Header() {
         <a href="#">
           <span className="fa-solid fa-angle-up"></span>
         </a>
+
+
       </div>
     </div>
   );
