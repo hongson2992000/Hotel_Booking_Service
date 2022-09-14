@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css"
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { hotelServiceState$ } from "../../../redux/selectors/HotelServiceSelector";

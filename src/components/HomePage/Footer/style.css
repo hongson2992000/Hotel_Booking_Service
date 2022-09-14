@@ -1,0 +1,111 @@
+/**Footer**/
+
+.footer {
+    height: 485px;
+    background-color: #141414;
+}
+
+.footer-item-info p {
+    margin: 40px 0px;
+}
+
+.footer-item-info p i {
+    margin: 10px 0px;
+}
+
+.footer-item-info p i {
+    color: #FFFFFF;
+    padding-right: 15px;
+}
+
+.footer-item-info p {
+    color: #c4c4c4;
+}
+
+.footer-item-info-brand {
+    font-size: 39px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.footer-item-contact {
+    padding-top: 100px;
+}
+
+.footer-item-contact-register {
+    font-size: 24px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.footer-item-contact-text {
+    color: #c4c4c4;
+    font-size: 20px;
+}
+
+.footer-item-contact form {
+    position: relative;
+}
+
+.footer-item-contact form input {
+    border: none;
+    outline: none;
+    width: 498px;
+    height: 50px;
+    padding-left: 20px;
+    background-color: #FFFFFF;
+    border-radius: 2px;
+}
+
+.footer-item-contact button {
+    position: absolute;
+    border: none;
+    outline: none;
+    top: 12px;
+    right: 130px;
+    color: #c4c4c4;
+    background-color: #FFFFFF;
+}
+
+.footer-item-contact button::after {
+    position: absolute;
+    border: none;
+    outline: none;
+    top: 12px;
+    right: 130px;
+    color: #c4c4c4;
+    background-color: #FFFFFF;
+}
+
+.footer-item-contact-social i {
+    color: #c4c4c4;
+    font-size: 35px;
+    padding-top: 20px;
+}
+
+.footer-item-contact-social i:last-child {
+    color: #c4c4c4;
+    font-size: 35px;
+    padding-left: 10px;
+}
+
+.hr6 {
+    margin-top: 15px;
+    border: 1px solid #888177;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    ;
+}
+
+.footer-item-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0px;
+}
+
+.footer-item-page p {
+    padding: 0px 20px;
+    color: #c4c4c4;
+}

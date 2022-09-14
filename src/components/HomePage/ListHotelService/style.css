@@ -1,0 +1,52 @@
+/**SERVICE OUTSTANDING**/
+
+.service-outstanding {
+    text-align: center;
+    width: auto;
+    height: 850px;
+    background-color: #1D1D1D;
+}
+
+.service-outstanding-text-item1 {
+    padding-top: 50px;
+    font-size: 28px;
+    color: #BCBCB1;
+}
+
+.service-outstanding-text-item2 {
+    font-size: 34px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.hr5 {
+    margin-top: 15px;
+    border: 2px solid #AD854B;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    ;
+}
+
+.service-outstanding-item {
+    padding: 20px 100px;
+}
+
+.slick-dots {
+    bottom: -70px;
+    /* background-color: #FFFFFF; */
+}
+
+.slick-dots li button::before {
+    content: none;
+}
+
+.slick-dots li button {
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+.slick-dots .slick-active {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}

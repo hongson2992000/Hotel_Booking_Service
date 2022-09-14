@@ -11,7 +11,7 @@ function* getAllHotelService(action) {
       return hotelService.getAllHotelService();
     });
     console.log(listService);
-    if (listService.status == STATUS_CODE.SUCCESS) {
+    if (listService.status === STATUS_CODE.SUCCESS) {
       yield put(actions.getHotelService.getHotelServiceSuccess(listService.data));
     }
   } catch (error) {
