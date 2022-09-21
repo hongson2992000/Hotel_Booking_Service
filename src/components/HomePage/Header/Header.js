@@ -1,0 +1,40 @@
+import React from "react";
+// import { useState } from "react";
+import Navigation from "../../Navigation/Navigation";
+import Recommend from "../../Recommend/Recommend";
+import ServiceBookingItem from "../../ServiceBookingItem/ServiceBookingItem";
+import Styles from './header.module.scss'
+import background from './../../../assets/images/trangchu.jpg'
+
+const Header = () => {
+  // const [navbarRecommendActive, setNavbarRecommendActive] = useState(false);
+  // // const [serviceBookingActive, setServiceBookingActive] = useState(false);
+
+  // // const navLinkStyle = ({ isActive }) => {
+  // //   return {
+  // //     color: isActive ? "rgba(173, 133, 75, 1)" : "rgba(255, 255, 255, 1)",
+  // //   };
+  // // };
+  // const changeBackground = () => {
+  //   if (window.scrollY >= 400) {
+  //     setNavbarRecommendActive(true);
+  //     // setServiceBookingActive(true);
+  //   } else {
+  //     setNavbarRecommendActive(false);
+  //     // setServiceBookingActive(false);
+  //   }
+  // };
+  // window.addEventListener("scroll", changeBackground);
+
+  return (
+    <div className={Styles.headerContainer} style={{ '--backgroundImage': `url(${background})` }}>
+      <div className={Styles.navBar}>
+        <Recommend />
+        <Navigation />
+        <ServiceBookingItem />
+      </div>
+    </div>
+  );
+}
+
+export default Header

@@ -2,9 +2,15 @@
 @import './abstracts/mixins';
 @import './abstracts/variables';
 
+// import abstracts
+@import './abstracts/mixins';
+@import './abstracts/variables';
+@import './abstracts/spacings';
+@import './abstracts/functions';
 
-// import util
+// import base
 @import './base/utils';
+@import './base/typgraphy';
 
 // import bootstrap
 @import './vendors/bootstrap';

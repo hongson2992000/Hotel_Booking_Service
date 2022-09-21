@@ -1,0 +1,21 @@
+p,
+.p,
+.text-xs {
+    @include font($hs-font-text-xs-array, $hs-line-height-160, null);
+}
+
+.text-sm {
+    @include font($hs-font-text-sm-array, $hs-line-height-160, null);
+}
+
+.text-md {
+    @include font($hs-font-text-md-array, $hs-line-height-160, null);
+}
+
+.text-lg {
+    @include font($hs-font-text-lg-array, $hs-line-height-160, null);
+}
+
+.text-xl {
+    @include font($hs-font-text-xl-array, $hs-line-height-100, null);
+}

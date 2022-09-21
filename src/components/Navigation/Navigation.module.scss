@@ -1,0 +1,38 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+.navContainer {
+    white-space: nowrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    .navContent {
+
+        justify-content: center;
+        align-items: center;
+        padding: $hs-spacing-2;
+
+        .rightNav {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            display: contents;
+        }
+
+        .navLink {
+            margin-right: 5rem;
+            text-align: center;
+
+            @include breakpoint(lg, down) {
+                margin-right: 1rem;
+            }
+
+        }
+
+        .leftNav {
+            justify-content: end;
+        }
+    }
+}
