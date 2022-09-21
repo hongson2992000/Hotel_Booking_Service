@@ -17,12 +17,6 @@ export default function InfoBookingRoom() {
           <br />
         </div>
         <div className="info-booking-item">
-          <label htmlFor="name">Chọn Phòng:</label>
-          <br />
-          <input id="dateStart" name="name" type="text" defaultValue />
-          <br />
-        </div>
-        <div className="info-booking-item">
           <label htmlFor="name">Số Người:</label>
           <br />
           <input id="dateStart" name="name" type="text" value="--" />
@@ -32,7 +26,7 @@ export default function InfoBookingRoom() {
           <label htmlFor="name"></label>
           <br />
           <button type="submit" className="btn btn-primary info-booking-btn">
-            Gửi
+            Kiểm Tra Phòng Trống
           </button>
         </div>
       </form>

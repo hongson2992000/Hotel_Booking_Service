@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./style.css";
 export default function Header() {
   const [navbarRecommendActive, setNavbarRecommendActive] = useState(false);
   const [serviceBookingActive, setServiceBookingActive] = useState(false);
+  const [navbarContactActive, setnavbarContactActive] = useState(false);
 
   const navLinkStyle = ({ isActive }) => {
     return {
@@ -12,12 +13,14 @@ export default function Header() {
     };
   };
   const changeBackground = () => {
-    if (window.scrollY >= 400) {
+    if (window.scrollY >= 610) {
       setNavbarRecommendActive(true);
       setServiceBookingActive(true);
+      setnavbarContactActive(true);
     } else {
       setNavbarRecommendActive(false);
       setServiceBookingActive(false);
+      setnavbarContactActive(false);
     }
   };
   window.addEventListener("scroll", changeBackground);
@@ -40,40 +43,46 @@ export default function Header() {
               Khám Phá Ngay
             </button>
           </div>
-          <div className="nav-bar-contact">
+          <div
+            className={
+              navbarContactActive ? "nav-bar-contact active" : "nav-bar-contact"
+            }
+          >
             <div className="brand-logo">
               <img
-                className="logo"
-                src="https://i.ibb.co/kQFB7PG/logo-lagi-8-resize.jpg"
-                alt=""
+                className="logo animate__animated animate__flip"
+                src="https://i.ibb.co/jTjg1xS/LOGO.png"
+                alt="#"
                 style={{ width: "50px", height: "50px" }}
               ></img>
-              <span className="brand-name">5 Men Hotel</span>
+              <span className="brand-name animate__animated animate__zoomIn">
+                5 Men Hotel
+              </span>
             </div>
             <nav>
-              <ul className="nav_link">
+              <ul className="navbar">
                 <li>
-                  <NavLink exact to="/" style={{ navLinkStyle }}>
+                  <NavLink className="nav-bar-link" to={"/" || "/home"}>
                     Trang Chủ
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/" style={{ navLinkStyle }}>
+                  <NavLink className="nav-bar-link" to="/gioithieu">
                     Giới Thiệu
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/" style={{ navLinkStyle }}>
+                  <NavLink className="nav-bar-link" to="/room">
                     Phòng
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/" style={{ navLinkStyle }}>
+                  <NavLink className="nav-bar-link" to="/tintuc">
                     Tin Tức
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/" style={{ navLinkStyle }}>
+                  <NavLink className="nav-bar-link" to="/lienhe">
                     Liên Hệ
                   </NavLink>
                 </li>
@@ -88,24 +97,40 @@ export default function Header() {
             }
           >
             <div className="service-booking-item">
+              <div className="service-booking-tag">
+                <p>Hot</p>
+              </div>
               <a href="#" className="service-booking-icon">
                 <i class="fa-solid fa-people-roof"></i>
               </a>
               <p className="service-booking-text">Phòng</p>
             </div>
             <div className="service-booking-item">
+              <div
+                style={{ width: "40px", height: "15px", margin: "8px auto" }}
+              >
+                {/* <p>Hot</p> */}
+              </div>
               <a href="#">
                 <i class="fa-solid fa-utensils"></i>
               </a>
               <p className="service-booking-text">Nhà Hàng</p>
             </div>
             <div className="service-booking-item">
+              <div
+                style={{ width: "40px", height: "15px", margin: "8px auto" }}
+              >
+                {/* <p>Hot</p> */}
+              </div>
               <a href="#">
                 <i class="fa-solid fa-bell-concierge"></i>
               </a>
               <p className="service-booking-text">Dịch Vụ</p>
             </div>
             <div className="service-booking-item">
+              <div className="service-booking-tag">
+                <p>New !</p>
+              </div>
               <a href="#">
                 <i class="fa-solid fa-person-swimming"></i>
               </a>
@@ -114,7 +139,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      
+
       <div className="arrow-btn">
         <a href="#">
           <span className="fa-solid fa-angle-up"></span>
