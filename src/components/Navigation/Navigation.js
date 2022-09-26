@@ -24,7 +24,7 @@ const Navigation = () => {
                             CONSTANT.NAV_ITEMS.map((item, idx) => {
                                 return (
                                     <div key={idx} className={classNames('text-sm', Styles.navLink)}>
-                                        {item}
+                                        <a href='/'>{item}</a>
                                     </div>
                                 )
                             })

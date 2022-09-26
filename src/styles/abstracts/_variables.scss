@@ -90,6 +90,12 @@ $hs-spacing-sizes: (
     '120': $hs-spacing-15,
 );
 
+$hs-font-text-xxl-array: (
+    xs: $hs-font-size-3,
+    lg: $hs-font-size-2,
+    xl: $hs-font-size-1,
+);
+
 $hs-font-text-xl-array: (
     xs: $hs-font-size-6,
     lg: $hs-font-size-5,
@@ -141,6 +147,7 @@ $hs-line-height-160: 1.6;
 
 // define color
 $hs-color-light-yellow: #ffC42A !default;
+$hs-color-maggie: rgba(173, 133, 75, 1) !default;
 $hs-color-dark-brown: #AD854B !default;
 $hs-color-dark-9: #141414 !default;
 $hs-color-dark-8: rgba(30, 30, 30, 0.8);
@@ -148,6 +155,8 @@ $hs-color-dark: #1D1D1D !default;
 $hs-color-dark-grey: #C4C4C4 !default;
 $hs-color-white-6: rgba(255, 255, 255, 0.6);
 $hs-color-white: #FFF !default;
+$hs-color-grey: #BCBCB1 !default;
+$hs-color-black-grey: #888177 !default;
 
 //  array of color
 $hs-colors: (
@@ -159,4 +168,7 @@ $hs-colors: (
     'dark-grey': $hs-color-dark-grey,
     'white-6': $hs-color-white-6,
     'white': $hs-color-white,
+    'maggie': $hs-color-maggie,
+    'grey': $hs-color-grey,
+    'black-grey': $hs-color-black-grey,
     )
