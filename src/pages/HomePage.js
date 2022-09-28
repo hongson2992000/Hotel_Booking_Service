@@ -14,6 +14,5 @@ export default function HomePage() {
       <OverviewRoom />
       <ListHotelService />
     </div>
-
   )
 }

@@ -1,0 +1,68 @@
+@import 'src/styles/abstracts/mixins';
+@import 'src/styles/abstracts/variables';
+
+.overviewRoomContainer {
+    background-image: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9)), var(--backgroundImage);
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: auto;
+    text-align: center;
+    height: fit-content;
+
+    img {
+        border: 3px solid #FFFFFF;
+    }
+
+    .image {
+        padding: 4rem 0;
+    }
+
+    .imageMiddle {
+        padding-left: 8rem;
+    }
+
+    .overviewRoomImage1,
+    .overviewRoomImage3 {
+        width: 35%;
+        transform: rotate(-10deg);
+
+        @include breakpoint(xl, down) {
+            width: 50%;
+        }
+    }
+
+    .overviewRoomImage2 {
+        width: 30%;
+        transform: rotate(10deg);
+
+        @include breakpoint(xl, down) {
+            width: 40%;
+        }
+    }
+
+    .introduceContainer {
+        line-height: 130%;
+    }
+
+    .hr1,
+    .hr2 {
+        border: 3px solid #AD854B;
+        width: 15%;
+    }
+
+    .hr2 {
+        width: 10%;
+        border: 1px solid #AD854B;
+    }
+
+    .description {
+
+        @include breakpoint(lg, down) {
+            width: 50%;
+            margin: 0 auto
+        }
+    }
+
+}

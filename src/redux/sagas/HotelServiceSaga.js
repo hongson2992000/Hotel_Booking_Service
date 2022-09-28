@@ -6,7 +6,6 @@ import { STATUS_CODE } from "../../util/constant/settingSystem";
 import { DISPLAY_LOADING, HIDE_LOADING } from "../../util/common/LoadingConstant";
 
 function* getAllHotelService(action) {
-  console.log("data:");
   try {
     yield put({
       type: DISPLAY_LOADING,
@@ -17,9 +16,8 @@ function* getAllHotelService(action) {
     });
     console.log(listService);
     if (listService.status === STATUS_CODE.SUCCESS) {
-      yield put(
-        actions.getHotelService.getHotelServiceSuccess(listService.data)
-      );
+      yield put(actions.getHotelService.getHotelServiceSuccess(listService.data));
+      console.log("data:", listService.data);
     }
     yield put({
       type: HIDE_LOADING,

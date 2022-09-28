@@ -17,9 +17,9 @@
         height: remToPx(2.625);
         box-sizing: content-box;
 
-        &:hover {
-            background-color: red;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .recommendBtn {
