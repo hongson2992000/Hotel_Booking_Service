@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carousel_introduce_page {
+    background-image: linear-gradient(rgba(20, 20, 20, 0.6), rgba(20, 20, 20, 0.9)), url('../../../../public/assets/img/gioithieu.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-attachment: fixed; */
+    width: 100%;
+    height: 270px;
+    display: block;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.carousel_introduce_page p {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.carousel_introduce_text1 {
+    padding-top: 40px;
+    color: #ffff;
+    font-size: 30px;
+}
+
+.carousel_introduce_text2 {
+    padding-top: 20px;
+    color: #ffff;
+    font-size: 20px;
+}

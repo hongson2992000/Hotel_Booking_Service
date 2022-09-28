@@ -18,7 +18,7 @@ export default function ListHotelService() {
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
-    autoplaySpeed: 10000,
+    autoplaySpeed: 2000,
     cssEase: "linear",
   };
   return (

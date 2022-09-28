@@ -19,7 +19,7 @@ export default function InfoBookingRoom() {
         <div className="info-booking-item">
           <label htmlFor="name">Số Người:</label>
           <br />
-          <input id="dateStart" name="name" type="text" value="--" />
+          <input id="dateStart" name="name" type="text" defaultValue/>
           <br />
         </div>
         <div className="info-booking-item">

@@ -1,11 +1,19 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { roomTypeState$ } from "../../../redux/selectors/RoomTypeSelector";
 import "./style.css";
+import * as actions from "../../../redux/actions/RoomTypeAction";
 // import '../../../../public/assets/img/standardRoom.jpg'
 export default function RoomType() {
+  const dispatch = useDispatch;
+  // React.useEffect(() => {
+  //   dispatch(actions.getRoomType.getRoomTypeRequest());
+  // }, [dispatch]);
+  // let arrRoomType = useSelector(roomTypeState$);
   return (
     <div className="roomType">
       <div className="row">
-      <div className="col-4 roomType_item">
+        <div className="col-4 roomType_item">
           <div className="roomType_item_header">
             <p className="roomType_item_text">Standard Room</p>
             <hr className="hr1" />
