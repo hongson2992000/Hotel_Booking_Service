@@ -1,9 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
-import NavbarHotelService from "../NavbarHotelService";
 import "./style.css";
-import image from "../../../assets/img/trangchu.jpg";
-import ServiceBookingItem from '../../ServiceBookingItem/ServiceBookingItem'
+
+
 export default function CarouselHomePage() {
   const settings = {
     dots: true,
@@ -16,15 +15,11 @@ export default function CarouselHomePage() {
     cssEase: "linear",
   };
   return (
-    // <div className='carousel'>
-    //     <NavbarHotelService/>
-    // </div>
     <div
       id="introduceCarousel"
       className="carousel slide introduce-carousel"
       data-ride="carousel"
     >
-      <ServiceBookingItem />
       <Slider {...settings}>
         <div className="carousel-item active">
           <img
@@ -40,7 +35,7 @@ export default function CarouselHomePage() {
             <div className="button__rm">
               <a
                 className="btn btn-lg"
-                href="#"
+                href="/"
                 data-toggle="modal"
                 data-target="#myModal"
               >
@@ -63,7 +58,7 @@ export default function CarouselHomePage() {
             <div className="button__rm">
               <a
                 className="btn btn-lg"
-                href="#"
+                href="/"
                 data-toggle="modal"
                 data-target="#myModal"
               >
@@ -86,7 +81,7 @@ export default function CarouselHomePage() {
             <div className="button__rm">
               <a
                 className="btn btn-lg"
-                href="#"
+                href="/"
                 data-toggle="modal"
                 data-target="#myModal"
               >
