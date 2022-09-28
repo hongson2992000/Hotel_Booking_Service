@@ -1,13 +1,25 @@
 import classNames from 'classnames';
+import { useState } from 'react';
 import { CONSTANT } from '../../util/constant/settingSystem';
+import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import Styles from './Navigation.module.scss'
 
 const Navigation = () => {
+
+    const [isExtend, setExtend] = useState(false);
+
+    const handleOpenNav = () => {
+        setExtend(!isExtend)
+    }
 
     return (
         <div className={classNames('d-block d-md-flex hs-bg-dark hs-text-white', Styles.navContainer)}>
             <div className={classNames('row col-12 alight-item-center', Styles.navContent)}>
                 <div className={classNames('col-md-4 d-flex', Styles.rightNav)}>
+                    {isExtend && <MobileNavigation onClick={handleOpenNav} />}
+                    <div className={classNames('d-md-none', Styles.btnNav)} onClick={handleOpenNav}>
+                        <i className="fa-solid fa-bars hs-text-white" style={{ fontSize: 20 }}></i>
+                    </div>
                     <div className={classNames('col-md-4', Styles.logo)}>
                         <img
                             className="logo"

@@ -1,7 +1,6 @@
 import React from "react";
 // import { useState } from "react";
 import Navigation from "../../Navigation/Navigation";
-import Recommend from "../../Recommend/Recommend";
 import ServiceBookingItem from "../../ServiceBookingItem/ServiceBookingItem";
 import Styles from './header.module.scss'
 import background from './../../../assets/images/trangchu.jpg'
@@ -29,7 +28,6 @@ const Header = () => {
   return (
     <div className={Styles.headerContainer} style={{ '--backgroundImage': `url(${background})` }}>
       <div className={Styles.navBar}>
-        <Recommend />
         <Navigation />
         <ServiceBookingItem />
       </div>

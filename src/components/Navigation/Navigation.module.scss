@@ -10,7 +10,7 @@
 
         justify-content: center;
         align-items: center;
-        padding: $hs-spacing-2;
+        padding: $hs-spacing-3;
 
         .rightNav {
             justify-content: center;
@@ -33,6 +33,20 @@
 
         .leftNav {
             justify-content: end;
+        }
+
+        .btnNav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            width: remToPx(2.5);
+            height: remToPx(2.625);
+            box-sizing: content-box;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }
