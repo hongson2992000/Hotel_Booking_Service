@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import NavbarHotelService from "../NavbarHotelService";
 import "./style.css";
 import image from "../../../assets/img/trangchu.jpg";
+import ServiceBookingItem from '../../ServiceBookingItem/ServiceBookingItem'
 export default function CarouselHomePage() {
   const settings = {
     dots: true,
@@ -23,7 +24,7 @@ export default function CarouselHomePage() {
       className="carousel slide introduce-carousel"
       data-ride="carousel"
     >
-      <NavbarHotelService />
+      <ServiceBookingItem />
       <Slider {...settings}>
         <div className="carousel-item active">
           <img

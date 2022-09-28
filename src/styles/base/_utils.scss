@@ -1,1 +1,20 @@
-// define a custom css 
+// define a array color in variable
+// this function will render a background color and text color by using className 
+
+@each $color, $value in $hs-colors {
+    .hs-bg-#{$color} {
+        background-color: $value !important;
+    }
+    .hs-text-#{$color} {
+        color: $value !important;
+    }
+}
+
+.hs-cursor-pointer {
+    cursor: pointer;
+}
+
+.hs-list-style-none {
+    list-style: none;
+}
+

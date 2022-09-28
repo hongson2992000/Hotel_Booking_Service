@@ -1,0 +1,27 @@
+@import '../../styles/abstracts/mixins';
+@import '../../styles/abstracts/variables';
+
+.ServiceBookingContainer {
+    justify-content: center;
+
+    .ServiceBookingItems {
+
+        @include breakpoint(md, down) {
+            justify-content: center;
+        }
+    }
+
+    .ServiceBookingItem {
+        padding: $hs-spacing-2 0;
+        text-align: center;
+    }
+
+    .icon {
+        font-size: $hs-font-size-5;
+
+        @include breakpoint(lg, down) {
+            font-size: $hs-font-size-7;
+        }
+    }
+
+}

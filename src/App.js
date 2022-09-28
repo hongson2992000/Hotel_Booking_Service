@@ -10,6 +10,7 @@ import FooterCopyright from "./components/RoomPage/FooterCopyright";
 import ArrowButton from "./components/HomePage/ArrowButton";
 import Loading from "./components/Loading";
 // import NavbarHome from "./templates/NavbarHome";
+import Navigation from "./components/Navigation/Navigation"
 function App() {
   // const [baseNavbar, setbaseNavbar] = useState(<Navbar />);
   // const [path, setPath] = useState("/");
@@ -38,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <Loading />
-      <Navbar />
+      <Navigation/>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
