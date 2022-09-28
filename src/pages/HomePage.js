@@ -1,9 +1,9 @@
 import React from 'react'
 import Header from '../components/HomePage/Header/Header';
-import InfoBookingRoom from '../components/HomePage/InfoBookingRoom';
-import IntroduceHotel from '../components/HomePage/IntroduceHotel';
-import ListHotelService from '../components/HomePage/ListHotelService';
-import OverviewRoom from '../components/HomePage/OverviewRoom';
+import ListHotelService from '../components/HomePage/ListHotelService/ListHotelService';
+import InfoBookingRoom from '../components/InfoBookingRoom/InfoBookingRoom';
+import IntroduceHotel from '../components/IntroduceHotel/IntroduceHotel';
+import OverviewRoom from '../components/OverviewRoom/OverviewRoom';
 export default function HomePage() {
   return (
     <div className='main-screen'>
