@@ -1,27 +1,29 @@
 import React from 'react'
-// import ArrowButton from '../components/HomePage/ArrowButton';
-import CarouselHomePage from '../components/HomePage/CarouselHomePage';
+import Header from '../components/HomePage/Header/Header'
 // import Footer from '../components/HomePage/Footer';
 // import FooterCopyright from '../components/HomePage/FooterCopyright';
-// import Header from '../components/HomePage/Header';
-import InfoBookingRoom from '../components/HomePage/InfoBookingRoom';
-import IntroduceHotel from '../components/HomePage/IntroduceHotel';
-import ListHotelService from '../components/HomePage/ListHotelService';
-// import NavbarHotelService from '../components/HomePage/NavbarHotelService';
-import OverviewRoom from '../components/HomePage/OverviewRoom';
+
+import ListHotelService from '../components/HomePage/ListHotelService/ListHotelService';
+import InfoBookingRoom from '../components/InfoBookingRoom/InfoBookingRoom';
+// import OverviewRoom from '../components/HomePage/OverviewRoom/OverviewRoom';
+import IntroduceHotel from '../components/IntroduceHotel/IntroduceHotel';
+import OverviewRoom from '../components/OverviewRoom/OverviewRoom';
+
+// import IntroduceHotel from '../components/HomePage/IntroduceHotel';
+
+// import OverviewRoom from '../components/HomePage/OverviewRoom';
+
 export default function HomePage() {
   return (
-    <div className='main-screen'>
-      {/* <Header/> */}
-      <CarouselHomePage/>
-      <InfoBookingRoom/>
-      <IntroduceHotel/>
-      <OverviewRoom/>
-      <ListHotelService/>
-      {/* <Footer/>
-      <FooterCopyright/>
-      <ArrowButton/> */}
-    </div>
 
+    <>
+      <Header />
+      <InfoBookingRoom />
+      <IntroduceHotel />
+      <OverviewRoom />
+      <ListHotelService />
+      {/* <Footer */}
+      {/* <FooterCopyright />*/}
+    </>
   )
 }

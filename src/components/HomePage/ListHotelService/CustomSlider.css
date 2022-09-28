@@ -1,0 +1,22 @@
+.slick-slide {
+    padding: 1rem;
+}
+
+/* .slick-initialized {
+    display: flex;
+} */
+
+.custom-prevArrow,
+.custom-nextArrow {
+    position: relative;
+    fill: #AD854B;
+    cursor: pointer;
+}
+
+.custom-prevArrow {
+    left: -20px;
+}
+
+.custom-nextArrow {
+    right: -20px;
+}

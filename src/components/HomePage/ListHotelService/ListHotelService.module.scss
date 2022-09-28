@@ -1,0 +1,12 @@
+@import 'src/styles/abstracts/variables';
+@import 'src/styles/abstracts/_mixins';
+
+
+.listServiceContainer {
+    border-top: 1px solid white;
+
+    .Slider {
+        justify-content: center;
+    }
+
+}
