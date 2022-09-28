@@ -1,0 +1,26 @@
+/**Arrow button**/
+
+.arrow-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 45px;
+    z-index: 9;
+}
+
+.arrow-btn a {
+    position: fixed;
+    bottom: 39px;
+    width: 37px;
+    text-align: center;
+    background: #1b1b1b;
+    display: block;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid #888177;
+}
+
+.arrow-btn a span {
+    color: #f2f2f2;
+    line-height: 39px;
+    font-size: 25px;
+}

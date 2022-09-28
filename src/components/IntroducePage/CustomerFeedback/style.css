@@ -1,0 +1,48 @@
+.customer_feedback {
+    background-image: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9)), url('../../../../public/assets/img/feedback.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 480px;
+    justify-content: center;
+    align-items: center;
+}
+
+.customer_feedback_text {
+    text-align: center;
+    color: #c4c4c4;
+    font-size: 30px;
+    padding: 20px 0;
+}
+
+.customer_feedback_item {
+    width: 200px;
+    height: 100px;
+    display: flex !important;
+    margin: 70px 30px;
+}
+
+.customer_feedback_item img {
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+}
+
+.feedback_item_body {
+    color: #ffff;
+    width: 300px;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+.feedback_item_body .customer_name {
+    color: #ffff;
+    font-size: 23px;
+}
+
+.feedback_item_body .feedback_text {
+    color: #c4c4c4;
+    font-size: 20px;
+}

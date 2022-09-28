@@ -47,10 +47,6 @@
     padding-top: 30px;
 }
 
-.roomType_item_body_description:last-child {
-    padding-left: 50px;
-}
-
 .roomType_item_body_description p {
     padding-right: 10px;
     font-size: 20px;
