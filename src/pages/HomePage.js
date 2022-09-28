@@ -7,6 +7,7 @@ import ListHotelService from '../components/HomePage/ListHotelService/ListHotelS
 import InfoBookingRoom from '../components/InfoBookingRoom/InfoBookingRoom';
 // import OverviewRoom from '../components/HomePage/OverviewRoom/OverviewRoom';
 import IntroduceHotel from '../components/IntroduceHotel/IntroduceHotel';
+import OverviewRoom from '../components/OverviewRoom/OverviewRoom';
 
 // import IntroduceHotel from '../components/HomePage/IntroduceHotel';
 
@@ -19,9 +20,7 @@ export default function HomePage() {
       <Header />
       <InfoBookingRoom />
       <IntroduceHotel />
-      {/* <OverviewRoom /> */}
-      {/* <IntroduceHotel />
-      <OverviewRoom /> */}
+      <OverviewRoom />
       <ListHotelService />
       {/* <Footer */}
       {/* <FooterCopyright />*/}

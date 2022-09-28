@@ -1,14 +1,15 @@
-@import '../../../styles/abstracts/mixins';
-@import '../../../styles/abstracts/variables';
+@import 'src/styles/abstracts/mixins';
+@import 'src/styles/abstracts/variables';
 
 .overviewRoomContainer {
-    background-image: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9)), url('https://i.ibb.co/Tvn99dK/background.jpg');
+    background-image: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9)), var(--backgroundImage);
     min-height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: auto;
-    height: 830px;
+    text-align: center;
+    height: fit-content;
 
     img {
         border: 3px solid #FFFFFF;
@@ -22,19 +23,23 @@
         padding-left: 8rem;
     }
 
-    .overviewRoomImage1 {
+    .overviewRoomImage1,
+    .overviewRoomImage3 {
         width: 35%;
         transform: rotate(-10deg);
+
+        @include breakpoint(xl, down) {
+            width: 50%;
+        }
     }
 
     .overviewRoomImage2 {
         width: 30%;
         transform: rotate(10deg);
-    }
 
-    .overviewRoomImage3 {
-        width: 35%;
-        transform: rotate(-10deg);
+        @include breakpoint(xl, down) {
+            width: 40%;
+        }
     }
 
     .introduceContainer {
@@ -52,5 +57,12 @@
         border: 1px solid #AD854B;
     }
 
+    .description {
+
+        @include breakpoint(lg, down) {
+            width: 50%;
+            margin: 0 auto
+        }
+    }
 
 }
