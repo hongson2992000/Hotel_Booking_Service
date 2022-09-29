@@ -1,13 +1,27 @@
 import classNames from "classnames"
+import { useState } from "react";
 import Styles from './InfoBookingRoom.module.scss'
 
 const InfoBookingRoom = () => {
+
+    const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
+
+    const renderDropdownPerson = () => {
+        return (
+            <select value="0" className={classNames('hs-bg-dark hs-text-dark-grey', Styles.infoBookingDate)}>
+                {Array.from(Array(10), (e, i) => {
+                    return <option value={i}>{i}</option>
+                })}
+            </select>
+        )
+    }
 
     const handleClick = () => {
         console.log("click button check available");
     }
 
     return (
+
         <div className="hs-bg-dark">
             <div className="container-fluid hs-py-32">
                 <div className={classNames('col-12 row', Styles.infoContainer)}>
@@ -33,7 +47,13 @@ const InfoBookingRoom = () => {
                                 Số Người:
                             </p>
                             <div className="col-12 hs-py-8">
-                                <input className={classNames('hs-bg-dark hs-text-dark-grey', Styles.infoBookingDate)} id="dateStart" name="name" type="date" defaultValue />
+                                {/* <input
+                                    className={classNames('hs-bg-dark hs-text-dark-grey', Styles.infoBookingDate)}
+                                    type="number"
+                                    onKeyDown={e => symbolsArr.includes(e.key) && e.preventDefault()}
+                                    placeholder='input number of person'
+                                /> */}
+                                {renderDropdownPerson()}
                             </div>
                         </div>
                         <div className={classNames('hs-text-white col-lg-4 col-md-3 col-12', Styles.infoBooking)}>

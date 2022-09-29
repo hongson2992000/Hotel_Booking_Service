@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useState } from 'react';
-import { CONSTANT } from '../../util/constant/settingSystem';
+import { CONSTANT } from '../../../util/constant/settingSystem';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import Styles from './Navigation.module.scss'
 

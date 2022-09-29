@@ -1,9 +1,8 @@
 import React from "react";
-// import { useState } from "react";
-import Navigation from "../../Navigation/Navigation";
-import ServiceBookingItem from "../../ServiceBookingItem/ServiceBookingItem";
 import Styles from './header.module.scss'
 import background from './../../../assets/images/trangchu.jpg'
+import Navigation from "../Navigation/Navigation";
+import ServiceBookingItem from "../ServiceBookingItem/ServiceBookingItem";
 
 const Header = () => {
   // const [navbarRecommendActive, setNavbarRecommendActive] = useState(false);

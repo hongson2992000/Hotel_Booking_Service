@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import classNames from "classnames"
-import { CONSTANT } from "../../util/constant/settingSystem"
+import { CONSTANT } from "../../../util/constant/settingSystem";
 import Styles from './IntroduceHotel.module.scss'
 
 const IntroduceHotel = () => {

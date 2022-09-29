@@ -25,6 +25,8 @@ $hs-font-size-array: (
             height: 55px;
             padding: 0 $hs-spacing-2;
             border: 1px solid white;
+            outline: none !important;
+            box-shadow: none !important;
 
             @each $breakpointValue,
             $fontSize in $hs-font-size-array {

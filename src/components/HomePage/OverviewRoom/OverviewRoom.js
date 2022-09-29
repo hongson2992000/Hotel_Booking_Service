@@ -1,5 +1,5 @@
 import classNames from "classnames"
-import { CONSTANT } from "../../util/constant/settingSystem";
+import { CONSTANT } from "../../../util/constant/settingSystem";
 import Styles from './OverviewRoom.module.scss'
 
 const OverviewRoom = () => {
