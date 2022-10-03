@@ -10,7 +10,7 @@ import sonImage from './../../../assets/images/son.jpg'
 import duongImage from './../../../assets/images/duong.jpg'
 import Slider from 'react-slick';
 import Feedback from './Feedback/Feedback';
-import './style.css'
+// import './style.css'
 
 
 const CustomerFeedback = () => {

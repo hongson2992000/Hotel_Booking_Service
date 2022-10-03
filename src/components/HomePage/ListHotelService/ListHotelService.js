@@ -16,7 +16,7 @@ const ListHotelService = () => {
         const { onClick } = props;
 
         return (
-            <div {...props} className="custom-prevArrow d-none" onClick={onClick}>
+            <div {...props} className="custom-prevArrow" onClick={onClick}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -33,7 +33,7 @@ const ListHotelService = () => {
         const { onClick } = props;
 
         return (
-            <div {...props} className="custom-nextArrow d-none" onClick={onClick}>
+            <div className="custom-nextArrow d-none d-lg-flex" onClick={onClick}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -57,10 +57,21 @@ const ListHotelService = () => {
         slidesToScroll: 1,
         autoplay: true,
         speed: 500,
-        autoplaySpeed: 10000,
+        autoplaySpeed: 2000,
         cssEase: "linear",
         nextArrow: <GalleryNextArrow />,
         prevArrow: <GalleryPrevArrow />,
+        appendDots: dots => (
+            <div>
+                <ul>{dots}</ul>
+            </div>
+
+        ),
+        customPaging: i => (
+            <button>
+                {i + 1}
+            </button>
+        ),
         responsive: [
             {
                 breakpoint: 1440,
