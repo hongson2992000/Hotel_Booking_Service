@@ -38,7 +38,7 @@ const OverviewRoom = () => {
                             {data.hotel_title}
                         </div>
                         <div className='text-xl hs-text-white hs-py-24'>
-                            NHỮNG CĂN PHÒNG XINH ĐẸP, THOÁNG MÁT
+                            {data.welcome_label}
                         </div>
                         <hr className={classNames('hs-text-dark-brown hs-mt-8', Styles.hr1)} />
                         <div className={classNames('hs-text-black-grey hs-py-64', Styles.description)}>

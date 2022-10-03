@@ -14,12 +14,27 @@ export const CONSTANT =
   HOTEL_NAME: '5 Men Hotel',
 
   NAV_ITEMS: [
-    "TRANG CHỦ",
-    "GIỚI THIỆU",
-    "PHÒNG",
-    "DỊCH VỤ",
-    "TIN TỨC",
-    "LIÊN HỆ",
+    {
+      name: "TRANG CHỦ",
+      link: '/'
+    },
+    {
+      name: "GIỚI THIỆU",
+      link: '/introduce'
+    }, {
+      name: "PHÒNG",
+      link: '/room'
+    }, {
+      name: "DỊCH VỤ",
+      link: '/service'
+    }, {
+      name: "TIN TỨC",
+      link: '/news'
+    },
+    {
+      name: "LIÊN HỆ",
+      link: '/contact'
+    },
   ],
 
   Background_TYPE: {

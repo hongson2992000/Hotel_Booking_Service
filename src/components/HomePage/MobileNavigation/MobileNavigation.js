@@ -4,10 +4,6 @@ import Styles from './MobileNavigation.module.scss'
 
 const MobileNavigation = ({ onClick }) => {
 
-    // const handleCloseOverlay = () => {
-    //     console.log('click close overlay');
-    // }
-
     return (
         <div className={classNames('hs-bg-dark-8', Styles.mobileNavContainer)}>
             <div className={classNames('hs-py-16 hs-px-16')} onClick={onClick}>
@@ -18,7 +14,7 @@ const MobileNavigation = ({ onClick }) => {
                     CONSTANT.NAV_ITEMS.map((item, idx) => {
                         return (
                             <div key={idx} className='text-lg hs-px-16 hs-py-16'>
-                                <a href='/' className={classNames('hs-text-dark-brown', Styles.navLink)}>{item}</a>
+                                <a href={item.link} className={classNames('hs-text-dark-brown', Styles.navLink)}>{item.name}</a>
                             </div>
                         )
                     })

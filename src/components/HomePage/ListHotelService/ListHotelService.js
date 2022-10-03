@@ -49,6 +49,7 @@ const ListHotelService = () => {
     React.useEffect(() => {
         dispatch(actions.getHotelService.getHotelServiceRequest());
     }, [dispatch]);
+
     const settings = {
         dots: true,
         infinite: true,
@@ -86,7 +87,7 @@ const ListHotelService = () => {
             }
         ]
     };
-    console.log('service: ', listService);
+
     return (
         <div className={classNames('introduce col-12 hs-bg-dark-9 hs-py-32', Styles.listServiceContainer)}>
             <div className="text-xl hotel-name">5 Men Hotel</div>

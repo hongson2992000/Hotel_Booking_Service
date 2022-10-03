@@ -3,6 +3,11 @@ import HomePage from "./pages/HomePage";
 import RoomPage from "./pages/RoomPage";
 import { Routes, Route } from "react-router-dom";
 import IntroducePage from "./pages/IntroducePage";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import Navigation from "./components/HomePage/Navigation/Navigation";
+import Footer from "./components/Footer/Footer/Footer";
+import FooterCopyright from "./components/Footer/FooterCopyright/FooterCopyright";
 
 function App() {
   // const [baseNavbar, setbaseNavbar] = useState(<Navbar />);
@@ -29,19 +34,33 @@ function App() {
   // // }, [window.location.pathname]);
   // // let baseNavbar;
 
+  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState();
+
+  useEffect(() => {
+    setCurrentPath(location.pathname);
+  }, [location]);
+
+  const checkHomePage = () => {
+    if (currentPath === '/' || currentPath === '/home') {
+      return true;
+    }
+
+    return false;
+  }
+
   return (
     <div className="App">
       {/* <Loading /> */}
-      {/* <Navigation/> */}
+      {!checkHomePage() && <Navigation />}
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route exact path="/room" element={<RoomPage />} />
-        <Route exact path="/gioithieu" element={<IntroducePage />} />
+        <Route exact path="/introduce" element={<IntroducePage />} />
       </Routes>
-      {/* <Footer />
-      <FooterCopyright /> */}
-      {/* <ArrowButton /> */}
+      <Footer />
+      <FooterCopyright />
     </div>
   );
 }

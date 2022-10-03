@@ -15,8 +15,8 @@ const Navigation = () => {
     return (
         <div className={classNames('d-block d-md-flex hs-bg-dark hs-text-white', Styles.navContainer)}>
             <div className={classNames('row col-12 alight-item-center', Styles.navContent)}>
+                {isExtend && <MobileNavigation onClick={handleOpenNav} />}
                 <div className={classNames('col-md-4 d-flex', Styles.rightNav)}>
-                    {isExtend && <MobileNavigation onClick={handleOpenNav} />}
                     <div className={classNames('d-md-none', Styles.btnNav)} onClick={handleOpenNav}>
                         <i className="fa-solid fa-bars hs-text-white" style={{ fontSize: 20 }}></i>
                     </div>
@@ -36,7 +36,7 @@ const Navigation = () => {
                             CONSTANT.NAV_ITEMS.map((item, idx) => {
                                 return (
                                     <div key={idx} className={classNames('text-sm', Styles.navLink)}>
-                                        <a href='/'>{item}</a>
+                                        <a href={item.link}>{item.name}</a>
                                     </div>
                                 )
                             })

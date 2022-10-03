@@ -4,13 +4,11 @@ import Styles from './InfoBookingRoom.module.scss'
 
 const InfoBookingRoom = () => {
 
-    const [symbolsArr] = useState(["e", "E", "+", "-", "."]);
-
     const renderDropdownPerson = () => {
         return (
-            <select value="0" className={classNames('hs-bg-dark hs-text-dark-grey', Styles.infoBookingDate)}>
+            <select defaultValue={0} className={classNames('hs-bg-dark hs-text-dark-grey', Styles.infoBookingDate)}>
                 {Array.from(Array(10), (e, i) => {
-                    return <option value={i}>{i}</option>
+                    return <option value={i} key={i}>{i}</option>
                 })}
             </select>
         )
