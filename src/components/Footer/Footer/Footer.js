@@ -28,7 +28,7 @@ const Footer = () => {
                         <i className="fa-solid fa-envelope hs-pr-16"></i> {footerContact.email}
                     </div>
                 </div>
-                <div className='col-12 col-md-6 col-lg-4 hs-py-24 hs-py-md-0 hs-px-lg-24'>
+                <div className='col-12 col-md-6 col-lg-5 hs-py-24 hs-py-md-0 hs-px-lg-24'>
                     <div className='hs-text-white text-lg hs-py-8 text-uppercase'>
                         Đăng Ký
                     </div>
@@ -48,7 +48,7 @@ const Footer = () => {
                         <i className="fa-brands fa-instagram hs-text-dark-grey text-xl"></i>
                     </div>
                 </div>
-                <div className='col-12 col-lg-4 hs-px-24 d-none d-lg-block'>
+                <div className='col-12 col-lg-3 hs-px-24 d-none d-lg-block'>
                     <div className='hs-text-white text-lg hs-py-8 text-uppercase'>
                         Hỗ trợ
                     </div>

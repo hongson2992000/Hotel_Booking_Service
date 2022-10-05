@@ -4,6 +4,7 @@ import CustomerFeedback from "../components/IntroducePage/CustomerFeedback/Custo
 import EvaluateComponent from "../components/IntroducePage/EvaluateComponent/EvaluateComponent";
 import GainComponent from "../components/IntroducePage/GainComponent/GainComponent";
 import WelcomeComponent from "../components/IntroducePage/WelcomeComponent/WelcomeComponent";
+import imageBreadcrumb from '../assets/images/gioithieu.jpg'
 // import CustomerFeedback from "../components/IntroducePage/CustomerFeedback";
 // import ParameterSection from "../components/IntroducePage/ParameterSection";
 // import SupportService from "../components/IntroducePage/SupportService";
@@ -12,7 +13,7 @@ import WelcomeComponent from "../components/IntroducePage/WelcomeComponent/Welco
 export default function IntroducePage() {
   return (
     <div className="main-screen">
-      <Breadcrumb />
+      <Breadcrumb image={imageBreadcrumb} />
       <WelcomeComponent />
       <EvaluateComponent />
       <GainComponent />

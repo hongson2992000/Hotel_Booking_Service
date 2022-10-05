@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import Navigation from "./components/HomePage/Navigation/Navigation";
 import Footer from "./components/Footer/Footer/Footer";
 import FooterCopyright from "./components/Footer/FooterCopyright/FooterCopyright";
+import NewsComponent from "./components/News/NewsComponent";
 
 function App() {
   // const [baseNavbar, setbaseNavbar] = useState(<Navbar />);
@@ -58,6 +59,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route exact path="/room" element={<RoomPage />} />
         <Route exact path="/introduce" element={<IntroducePage />} />
+        <Route exact path="/news" element={<NewsComponent />} />
       </Routes>
       <Footer />
       <FooterCopyright />

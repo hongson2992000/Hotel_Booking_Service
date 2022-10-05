@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { CONSTANT } from '../../../util/constant/settingSystem'
 import Styles from './Breadcrumb.module.scss'
-import image from '../../../assets/images/gioithieu.jpg'
 
-const Breadcrumb = () => {
+const Breadcrumb = ({ image }) => {
     const location = useLocation();
     const [namePage, setNamePage] = useState();
     const currentPath = location.pathname
