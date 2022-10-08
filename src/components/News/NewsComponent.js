@@ -29,6 +29,7 @@ const NewsComponent = () => {
     }
 
     const [currentGlobalTab, setCurrentGlobalTab] = useState(Object.keys(globalTab)[0])
+    const [currentEventTab, setCurrentEventTab] = useState(null)
 
     const couponData = [
         {
@@ -75,27 +76,132 @@ const NewsComponent = () => {
             ticket: 'Vào cổng tự do',
             location: 'Hồ Chí Minh',
             title: 'VMARK Tuần Lễ Thiết Kế Nội Thất Việt Nam 2022',
-            dateTime: '9:00 - 29/09/2022',
+            startDate: '07/10/2022',
+            endDate: '10/10/2022',
+            startTime: '07:00',
+            endTime: '23:00',
+            status: 'present',
             view: 200,
-            type: 0
         },
         {
             imageUrl: imageEvent2,
             ticket: 'Vào cổng tự do',
             location: 'Hồ Chí Minh',
             title: 'Vietnam Motor Show 2022 - Triển lãm Ô Tô Việt Nam',
-            dateTime: 'Từ 9:00 - 26/10/2022',
+            startDate: '01/10/2022',
+            endDate: '01/10/2022',
+            startTime: '07:00',
+            endTime: '23:30',
+            status: 'pass',
             view: 300,
-            type: 0
         },
         {
             imageUrl: imageEvent3,
             ticket: 'Vào cổng tự do',
             location: 'Hồ Chí Minh',
-            title: 'THE COFFEE EXPO VIETNAM 2022 – Triển lãm Quốc tế Cà Phê, Bánh và Trà tại Việt Nam',
-            dateTime: 'Từ 9:00 - 30/09/2022',
+            title: 'THE COFFEE EXPO VIETNAM 2022 - Triển lãm Quốc tế Cà Phê, Bánh và Trà tại Việt Nam',
+            startDate: '20/10/2022',
+            endDate: '30/10/2022',
+            startTime: '07:00',
+            endTime: '19:00',
+            status: 'future',
             view: 210,
-            type: 0
+        },
+        {
+            imageUrl: imageEvent3,
+            ticket: 'Vào cổng tự do',
+            location: 'Hồ Chí Minh',
+            title: 'THE COFFEE EXPO VIETNAM 2022 - Triển lãm Quốc tế Cà Phê, Bánh và Trà tại Việt Nam',
+            startDate: '20/10/2022',
+            endDate: '30/10/2022',
+            startTime: '07:00',
+            endTime: '19:00',
+            status: 'future',
+            view: 210,
+        },
+        {
+            imageUrl: imageEvent3,
+            ticket: 'Vào cổng tự do',
+            location: 'Hồ Chí Minh',
+            title: 'THE COFFEE EXPO VIETNAM 2022 - Triển lãm Quốc tế Cà Phê, Bánh và Trà tại Việt Nam',
+            startDate: '02/10/2022',
+            endDate: '03/10/2022',
+            startTime: '07:00',
+            endTime: '19:00',
+            status: 'pass',
+            view: 210,
+        },
+        {
+            imageUrl: imageEvent3,
+            ticket: 'Vào cổng tự do',
+            location: 'Hồ Chí Minh',
+            title: 'THE COFFEE EXPO VIETNAM 2022 - Triển lãm Quốc tế Cà Phê, Bánh và Trà tại Việt Nam',
+            startDate: '08/10/2022',
+            endDate: '08/10/2022',
+            startTime: '07:00',
+            endTime: '19:00',
+            status: 'present',
+            view: 210,
+        },
+        {
+            imageUrl: imageEvent3,
+            ticket: 'Vào cổng tự do',
+            location: 'Hồ Chí Minh',
+            title: 'THE COFFEE EXPO VIETNAM 2022 - Triển lãm Quốc tế Cà Phê, Bánh và Trà tại Việt Nam',
+            startDate: '20/07/2022',
+            endDate: '01/08/2022',
+            startTime: '07:00',
+            endTime: '19:00',
+            status: 'pass',
+            view: 210,
+        },
+        {
+            imageUrl: imageEvent2,
+            ticket: 'Vào cổng tự do',
+            location: 'Hồ Chí Minh',
+            title: 'Vietnam Motor Show 2022 - Triển lãm Ô Tô Việt Nam',
+            startDate: '01/10/2022',
+            endDate: '01/10/2022',
+            startTime: '07:00',
+            endTime: '23:30',
+            status: 'pass',
+            view: 300,
+        },
+        {
+            imageUrl: imageEvent2,
+            ticket: 'Vào cổng tự do',
+            location: 'Hồ Chí Minh',
+            title: 'Vietnam Motor Show 2022 - Triển lãm Ô Tô Việt Nam',
+            startDate: '01/10/2022',
+            endDate: '01/10/2022',
+            startTime: '07:00',
+            endTime: '23:30',
+            status: 'pass',
+            view: 300,
+        },
+        {
+            imageUrl: imageEvent2,
+            ticket: 'Vào cổng tự do',
+            location: 'Hồ Chí Minh',
+            title: 'Vietnam Motor Show 2022 - Triển lãm Ô Tô Việt Nam',
+            startDate: '01/10/2022',
+            endDate: '01/10/2022',
+            startTime: '07:00',
+            endTime: '23:30',
+            status: 'pass',
+            view: 300,
+        },
+        {
+            imageUrl: imageEvent2,
+            ticket: 'Vào cổng tự do',
+            location: 'Hồ Chí Minh',
+            title: 'Vietnam Motor Show 2022 - Triển lãm Ô Tô Việt Nam',
+            startDate: '01/10/2022',
+            endDate: '01/10/2022',
+            startTime: '07:00',
+            endTime: '23:30',
+            status: 'pass',
+            view: 300,
         },
     ]
 
@@ -104,6 +210,7 @@ const NewsComponent = () => {
         destination: 'destination',
         event: 'event'
     }
+
     const renderGlobalTab = useCallback(() => {
         switch (currentGlobalTab) {
             case ENTRY_TYPE.coupon:
@@ -115,7 +222,7 @@ const NewsComponent = () => {
             default:
                 return null;
         }
-    }, [currentGlobalTab])
+    }, [currentGlobalTab, currentEventTab])
 
     const renderCoupon = () => {
         return (
@@ -150,7 +257,7 @@ const NewsComponent = () => {
                 {
                     destinationData.map((des, idx) => {
                         return (
-                            <div className='hs-pb-32 row'>
+                            <div className='hs-pb-32 row' key={idx}>
                                 <div key={idx} className={classNames('col-4', Styles.newsImageDes)}>
                                     <img src={des.imageUrl} alt={des.title} />
                                 </div>
@@ -176,31 +283,128 @@ const NewsComponent = () => {
         )
     }
 
+    const SUB_EVENT = {
+        present: 'present',
+        future: 'future',
+        pass: 'pass'
+    }
+
+    const renderTab = (ev) => {
+        const startDateTime = new Date(ev.startDate).getTime();
+        const endDateTIme = new Date(ev.endDate).getTime();
+
+        const isCurrentTab = currentEventTab === ev.status;
+
+        return (
+            isCurrentTab ? (
+                <div className='col-6 hs-px-32 hs-py-24'>
+                    <div className={classNames('hs-bg-dark col-12 rounded', Styles.subEventTabContainer)}>
+                        <div className={Styles.subEventImage} style={{ '--backgroundImage': `url(${ev.imageUrl})` }}>
+                            <div className={classNames('hs-text-dark-brown hs-bg-grey-6 hs-px-16', Styles.overlayText)}>
+                                {ev.ticket}
+                            </div>
+                        </div>
+                        <div className='hs-px-16 hs-py-8'>
+                            <div className='hs-text-dark-grey'>
+                                {ev.location}
+                            </div>
+                            <div className=''>
+                                <TextTruncate text={ev.title} desktop={3} mobile={3} />
+                            </div>
+                            <div className={classNames('col-12 hs-py-8', Styles.subContentTab)}>
+                                <div className='row d-flex'>
+                                    <div className='hs-text-dark-grey col-8'>
+                                        <i className="fa-regular fa-clock hs-pr-8"></i>
+                                        {ev.startTime}{' - ' + ev.endTime}
+                                    </div>
+                                    <div className='hs-text-dark-grey col-4'>
+                                        <i className="fa-regular fa-eye hs-pr-8"></i>
+                                        {ev.view}
+                                    </div>
+                                </div>
+                                <div className='hs-text-dark-grey'>
+                                    <i className="fa-regular fa-calendar hs-pr-8"></i>
+                                    {ev.startDate}{startDateTime !== endDateTIme ? (' - ' + ev.endDate) : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ) : null
+        )
+    }
+
+    const renderSubEvent = (ev) => {
+        // var currentTime = new Date().getTime();
+
+        // const dateArray = ev.dateTime.split("_");
+        // const timeArray = dateArray[1].split("-");
+
+        // const [hoursStart, minutesStart] = timeArray[0].split(':');
+        // const [hoursEnd, minutesEnd] = timeArray[1].split(':');
+        // const [day, month, year] = dateArray[0].split('/');
+
+        // const startTime = new Date(+year, month - 1, +day, +hoursStart, +minutesStart, +'00').getTime();
+        // const endTime = new Date(+year, month - 1, +day, +hoursEnd, +minutesEnd, +'00').getTime();
+
+        // if (currentTime < startTime && SUB_EVENT.future === currentEventTab) {
+        //     return renderTab(ev)
+        // } if (currentTime > endTime && SUB_EVENT.pass === currentEventTab) {
+        //     return renderTab(ev)
+        // } if (currentTime > startTime && currentTime < endTime && SUB_EVENT.present === currentEventTab) {
+        //     return renderTab(ev)
+        // }
+
+        switch (currentEventTab) {
+            case SUB_EVENT.pass:
+                return renderTab(ev);
+            case SUB_EVENT.present:
+                return renderTab(ev);
+            case SUB_EVENT.future:
+                return renderTab(ev);
+            default:
+                return null;
+        }
+
+    }
+
     const renderEvent = () => {
         return (
             <div className='col-10'>
-                <div className=''>
+                <div className='d-flex'>
                     {
                         Object.entries(eventTab).map(([key, value], index) => {
                             return (
-                                <div key={index} className={classNames('', Styles.tabGlobalMenu, currentGlobalTab === key ? 'hs-text-dark-brown' : 'hs-text-white')} onClick={() => setCurrentGlobalTab(key)}>
+                                <div key={index} className={classNames('col-2 text-center hs-py-4', Styles.tabGlobalMenu, currentEventTab === key ? 'hs-bg-dark-9 hs-text-white' : 'hs-text-dark-grey')} onClick={() => setCurrentEventTab(key)}>
                                     <p>{value}</p>
                                 </div>
                             )
                         })
                     }
                 </div>
-                {
-                    eventData.map((e, idx) => {
-                        return (
-                            <div className=''>
+                <div className={classNames('hs-bg-dark-9 hs-px-0', Styles.subEventContainer)}>
+                    <div className='row d-flex'>
+                        {
+                            eventData.map((ev, idx) => {
+                                return (
+                                    <>
+                                        {renderSubEvent(ev)}
+                                    </>
+                                )
+                            })
+                        }
 
-                            </div>
-                        )
-                    })
-                }
+                    </div>
+                </div>
             </div>
         )
+    }
+
+    const handleChangeGlobalTab = (key) => {
+        if (key === ENTRY_TYPE.event) {
+            setCurrentEventTab(Object.keys(eventTab)[0])
+        }
+        setCurrentGlobalTab(key)
     }
 
     return (
@@ -210,7 +414,7 @@ const NewsComponent = () => {
                     {
                         Object.entries(globalTab).map(([key, value], index) => {
                             return (
-                                <div key={index} className={classNames('hs-py-16', Styles.tabGlobalMenu, currentGlobalTab === key ? 'hs-text-dark-brown' : 'hs-text-white')} onClick={() => setCurrentGlobalTab(key)}>
+                                <div key={index} className={classNames('hs-py-16', Styles.tabGlobalMenu, currentGlobalTab === key ? 'hs-text-dark-brown' : 'hs-text-white')} onClick={() => handleChangeGlobalTab(key)}>
                                     <p>{value}</p>
                                 </div>
                             )
