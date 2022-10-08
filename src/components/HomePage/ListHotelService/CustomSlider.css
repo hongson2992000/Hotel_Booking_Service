@@ -36,6 +36,7 @@
 
 .slick-dots ul {
     margin-bottom: 0;
+    padding-left: 0;
 }
 
 .slick-dots li {

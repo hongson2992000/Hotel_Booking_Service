@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import { CONSTANT } from "../../../util/constant/settingSystem";
+import IntroducePageCustom from "../../../util/utilities/introduce-page/introduce-page-custom";
 import Styles from './OverviewRoom.module.scss'
 
 const OverviewRoom = () => {
@@ -32,29 +33,8 @@ const OverviewRoom = () => {
                         ></img>
                     </div>
                 </div>
-                <div className={classNames('col-12 col-lg-6', Styles.rightOverview)}>
-                    <div className={classNames('hs-py-32', Styles.introduceContainer)}>
-                        <div className='text-xl hs-text-grey'>
-                            {data.hotel_title}
-                        </div>
-                        <div className='text-xl hs-text-white hs-py-24'>
-                            {data.welcome_label}
-                        </div>
-                        <hr className={classNames('hs-text-dark-brown hs-mt-8', Styles.hr1)} />
-                        <div className={classNames('hs-text-black-grey hs-py-64', Styles.description)}>
-                            <p>
-                                {data.description}
-                            </p>
-                        </div>
-                        <div className={classNames('')}>
-                            <p className="text-lg">
-                                <a href="/" className="hs-text-dark-brown">
-                                    {data.detail_label}
-                                </a>
-                            </p>
-                        </div>
-                        <hr className={classNames('hs-text-dark-brown hs-mt-8', Styles.hr2)} />
-                    </div>
+                <div className="col-12 col-lg-6 d-flex justify-content-center">
+                    <IntroducePageCustom data={data} classNameHr='hs-mx-0' />
                 </div>
             </div>
         </div>

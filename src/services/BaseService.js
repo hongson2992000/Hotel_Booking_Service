@@ -33,7 +33,7 @@ export class BaseServices {
       headers: {
         Authorization:
           "Bearer " +
-          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifSx7ImF1dGhvcml0eSI6IlJPTEVfVVNFUiJ9XSwiaWF0IjoxNjY1MDMwMjk4LCJleHAiOjE2NjUwMzM4OTh9.P2wC5z5rHUg4Xr-auysHEyAz_rvET5B1FKhYrvqIbZw"
+          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifSx7ImF1dGhvcml0eSI6IlJPTEVfVVNFUiJ9XSwiaWF0IjoxNjY1MjA1NzkwLCJleHAiOjE2NjUyMDkzOTB9.o26YuXLrdALALR-ieXyZ6y6gmDE5FBsFg5UXQ6LDvY4"
       },
     });
   };

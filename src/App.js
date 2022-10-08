@@ -9,6 +9,7 @@ import Navigation from "./components/HomePage/Navigation/Navigation";
 import Footer from "./components/Footer/Footer/Footer";
 import FooterCopyright from "./components/Footer/FooterCopyright/FooterCopyright";
 import NewsComponent from "./components/News/NewsComponent";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   // const [baseNavbar, setbaseNavbar] = useState(<Navbar />);
@@ -60,6 +61,7 @@ function App() {
         <Route exact path="/room" element={<RoomPage />} />
         <Route exact path="/introduce" element={<IntroducePage />} />
         <Route exact path="/news" element={<NewsComponent />} />
+        <Route exact path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
       <FooterCopyright />

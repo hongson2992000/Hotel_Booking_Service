@@ -4,7 +4,7 @@ import Styles from './introduce-page-custom.module.scss'
 const IntroducePageCustom = ({ data, classNameHr = undefined, classNameContainer = undefined }) => {
 
     return (
-        <div className={classNames('col-12 col-lg-6', Styles.rightOverview, classNameContainer)}>
+        <div className={classNames('col-8 col-lg-10', classNameContainer)}>
             <div className={classNames('hs-py-32', Styles.introduceContainer)}>
                 {
                     data.hotel_title && <div className='text-xl hs-text-grey'>
@@ -35,7 +35,7 @@ const IntroducePageCustom = ({ data, classNameHr = undefined, classNameContainer
                                     {data.detail_label}
                                 </a>
                             </p>
-                            <hr className={classNames('hs-text-dark-brown hs-mt-8', Styles.hr2)} />
+                            <hr className={classNames('hs-text-dark-brown hs-mt-8', Styles.hr2, classNameHr)} />
                         </div>
                     )
                 }

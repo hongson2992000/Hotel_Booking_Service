@@ -1,5 +1,4 @@
 import classNames from "classnames"
-import { useState } from "react";
 import Styles from './InfoBookingRoom.module.scss'
 
 const InfoBookingRoom = () => {

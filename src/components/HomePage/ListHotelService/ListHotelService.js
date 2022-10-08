@@ -16,7 +16,7 @@ const ListHotelService = () => {
         const { onClick } = props;
 
         return (
-            <div {...props} className="custom-prevArrow" onClick={onClick}>
+            <div {...props} className="custom-prevArrow d-none d-lg-flex" onClick={onClick}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
