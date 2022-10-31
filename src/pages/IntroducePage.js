@@ -18,10 +18,6 @@ export default function IntroducePage() {
       <EvaluateComponent />
       <GainComponent />
       <CustomerFeedback />
-      {/* <WelcomeSection />
-      <ParameterSection/>
-      <SupportService/>
-      <CustomerFeedback/> */}
     </div>
   );
 }

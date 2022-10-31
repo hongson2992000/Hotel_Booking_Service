@@ -21,7 +21,7 @@ const Breadcrumb = ({ image }) => {
 
     return (
         <div className={Styles.container} style={{ '--backgroundImage': `url(${image})` }}>
-            <div className='hs-text-white hs-py-48'>
+            <div className='hs-text-white hs-pt-96 hs-pb-8'>
                 <p className='text-xl'>{namePage}</p>
             </div>
 

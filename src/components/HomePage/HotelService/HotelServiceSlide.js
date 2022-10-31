@@ -8,15 +8,15 @@ const HotelServiceSlide = ({ service }) => {
         <div className={classNames('hs-text-white', Styles.slideContainer)}>
             <div className={classNames('', Styles.image)}>
                 <img
-                    src={service.imageUrl}
+                    src={service.pictureUrl}
                     alt='img'
                 />
             </div>
             <div className={classNames('hs-py-24 hs-px-24 hs-text-dark-brown text-lg')}>
-                <TextTruncate text={service.title} mobile='5' desktop='4' />
+                <TextTruncate text={service.pictureDescription} mobile='5' desktop='4' />
             </div>
             <div className={classNames('hs-pb-16 hs-px-24 hs-text-black-grey text-md')}>
-                <TextTruncate text={service.description} mobile='5' desktop='4' />
+                <TextTruncate text={service.pictureDescription} mobile='5' desktop='4' />
             </div>
         </div>
     )

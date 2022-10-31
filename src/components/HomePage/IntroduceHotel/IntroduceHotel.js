@@ -19,7 +19,7 @@ const IntroduceHotel = () => {
                 {data.welcome_label}
             </div>
             <hr className={classNames('hs-text-dark-brown hs-mt-8', Styles.hr1)} />
-            <div className={classNames('hs-text-black-grey hs-py-32', Styles.description)}>
+            <div className={classNames('hs-text-black-grey hs-py-24', Styles.description)}>
                 <p>
                     {data.description}
                 </p>
