@@ -1,13 +1,11 @@
 import React from "react";
-import Carousel from "../components/RoomPage/Carousel";
-import RoomType from "../components/RoomPage/RoomType";
-// import Footer from "../components/RoomPage/Footer";
-// import FooterCopyRight from "../components/RoomPage/FooterCopyright";
-// import "./GeneralStyle.module.css"
+import Breadcrumb from "../components/RoomPage/Breadcrumb/Breadcrumb";
+import RoomType from "../components/RoomPage/RoomType/RoomType";
+import imageBreadcrumb from "../assets/images/roomType/phong.jpg";
 export default function RoomPage() {
   return (
     <div className="main-screen">
-      <Carousel />
+      <Breadcrumb image={imageBreadcrumb} />
       <RoomType />
       {/* <Footer />
       <FooterCopyRight /> */}
