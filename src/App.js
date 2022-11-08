@@ -19,6 +19,7 @@ import Loading from "./components/Loading/Loading";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import { loadingState$ } from "./redux/selectors/LoadingSelector";
 import { useSelector } from "react-redux";
+import RoomPageAvailability from "./pages/RoomPageAvailability";
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route exact path="/room" element={<RoomPage />} />
+        <Route exact path="/roomValidate" element={<RoomPageAvailability/>}/>
         <Route exact path="/roomTypeDetail" element={<RoomTypeDetail />} />
         <Route exact path="/introduce" element={<IntroducePage />} />
         <Route exact path="/news" element={<NewsComponent />} />
