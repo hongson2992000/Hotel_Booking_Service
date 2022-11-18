@@ -7,7 +7,6 @@ import {
   HIDE_LOADING,
 } from "../../util/common/LoadingConstant";
 import { serviceCategory } from "../../services/ServiceCategory";
-import { useNavigate } from "react-router-dom";
 
 function* getAllServiceCategory(action) {
   try {
@@ -18,12 +17,10 @@ function* getAllServiceCategory(action) {
     let listService = yield call(() => {
       return serviceCategory.getAllServiceCategory(action.payload);
     });
-    console.log(listService);
     if (listService.status === STATUS_CODE.SUCCESS) {
       yield put(
         actions.getServiceCategory.getServiceCategorySuccess(listService.data)
       );
-      console.log("data:", listService.data);
     }
     yield put({
       type: HIDE_LOADING,
@@ -41,7 +38,7 @@ function* getServiceCategoryById(action) {
     let service = yield call(() => {
       return serviceCategory.getServiceCategoryById(action.payload);
     });
-    if(service.status === STATUS_CODE.SUCCESS){
+    if (service.status === STATUS_CODE.SUCCESS) {
       yield put(
         actions.getServiceCategoryById.getServiceCategoryByIdSuccess(service.data)
       )

@@ -26,7 +26,7 @@ export class BaseServices {
       headers: { Authorization: "Bearer " + localStorage.getItem(TOKEN) },
     });
   };
-  get = (url, model) => {
+  get = (url) => {
     return axios({
       url: `${DOMAIN}/${url}`,
       method: "GET",

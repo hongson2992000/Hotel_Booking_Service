@@ -1,9 +1,9 @@
 import { BaseServices } from "./BaseService";
 
 class HotelService extends BaseServices {
-  getAllHotelService = () => {
-    return this.get(`v1/overview/getOverviewServices`)
+  getHotelServiceById = (id) => {
+    return this.get(`v1/hotel/${id}`);
   };
 }
 
-export const hotelService = new HotelService();
+export default HotelService = new HotelService();
