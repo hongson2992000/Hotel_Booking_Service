@@ -45,7 +45,7 @@ export default function RoomAvailability({ data, callBackFunc }) {
             </div>
             <div className="col-6 d-flex justify-content-end">
               <a
-                href="/roomValidate"
+                href="/RoomValidate"
                 className="hs-text-dark-brown text-lg hs-py-16"
               >
                 Chi tiết và ảnh phòng

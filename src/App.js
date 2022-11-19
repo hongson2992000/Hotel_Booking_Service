@@ -19,7 +19,6 @@ import { useSelector } from "react-redux";
 import RoomPageCheckValidate from "./pages/RoomPageCheckValidate";
 
 function App() {
-
   let isLoading = useSelector(loadingState$);
   return (
     <div className="App">
@@ -28,7 +27,7 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route exact path="/room" element={<RoomPage />} />
-        <Route exact path="/roomValidate" element={<RoomPageCheckValidate />} />
+        <Route exact path="/RoomValidate" element={<RoomPageCheckValidate />} />
         <Route exact path="/roomTypeDetail" element={<RoomTypeDetail />} />
         <Route exact path="/introduce" element={<IntroducePage />} />
         <Route exact path="/news" element={<NewsComponent />} />

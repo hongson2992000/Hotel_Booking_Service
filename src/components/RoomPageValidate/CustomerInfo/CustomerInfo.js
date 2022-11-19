@@ -14,6 +14,8 @@ const CustomerInfo = ({
   totalPrice,
   removeRoomCb,
   areaRequire,
+  airSportList,
+  arrayCheckedAirport,
 }) => {
   const getPersonByIndex = (index) => {
     const person = count.find((p, idx) => index === idx);
@@ -91,7 +93,7 @@ const CustomerInfo = ({
                       {person.adult + " người lớn"}
                       {person.child > 0 ? person.child + " trẻ em" : ""}
                       <div className=" hs-py-16 hs-text-dark-brown">
-                        {(index > 0 || index + 1 === count.length) && (
+                        {index + 1 === roomSelect.length && (
                           <p className="button text-lg" onClick={removeRoomCb}>
                             Bỏ
                           </p>
@@ -100,6 +102,31 @@ const CustomerInfo = ({
                     </div>
                   </div>
                 );
+              })}
+            {airSportList &&
+              airSportList.map((airSport, index) => {
+                if (arrayCheckedAirport.id === airSport.id) {
+                  return (
+                    <div
+                      key={index}
+                      className={classNames(
+                        index > 0 && "hs-border-top-solid-dark ",
+                        "hs-py-32"
+                      )}
+                    >
+                      <div className="col-12 d-flex justify-content-between">
+                        <div className="hs-py-16 text-lg">{airSport.name}</div>
+                        <div className={classNames("text-lg hs-py-16")}>
+                          {formatPrice(airSport.price, "vi-VN", "VND")}
+                        </div>
+                      </div>
+                      <div className="col-12 hs-text-dark-grey text-md">
+                        {airSport.description}
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
               })}
             <div className="col-12 d-flex justify-content-between hs-border-top-solid-dark">
               <div className="hs-py-16 text-lg">Tổng</div>

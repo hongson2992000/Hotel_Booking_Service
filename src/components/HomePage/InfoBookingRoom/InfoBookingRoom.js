@@ -5,6 +5,7 @@ import Styles from "./InfoBookingRoom.module.scss";
 import { useNavigate } from "react-router-dom";
 import { checkDate } from "../../../util/utilities/utils";
 import moment from "moment/moment";
+import { CONSTANT } from "../../../util/constant/settingSystem";
 
 const InfoBookingRoom = () => {
   const dateCheckInRef = useRef(null);
@@ -41,7 +42,7 @@ const InfoBookingRoom = () => {
       dateCheckOutRef.current.value &&
       person !== 0
     ) {
-      navigate("/roomValidate", {
+      navigate(`${CONSTANT.ROOM_VALIDATE}`, {
         state: {
           dateCheckIn: dateCheckInRef.current.value,
           dateCheckout: dateCheckOutRef.current.value,

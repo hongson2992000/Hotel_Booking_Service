@@ -5,6 +5,7 @@ import * as serviceCategorySaga from "./ServiceCategorySaga";
 import * as roomAvailabilitySaga from "./RoomAvailabilitySaga";
 import * as serviceSaga from "./ServiceSaga";
 import * as getAllSpecialUtility from "./SpecialUtilitySaga";
+import * as paymentSaga from "./PaymentSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -16,5 +17,7 @@ export default function* rootSaga() {
     roomAvailabilitySaga.followActionGetAllRoomAvailability(),
     serviceSaga.followActionGetAllServiceByCategoryId(),
     getAllSpecialUtility.followActionGetAllSpecialUtility(),
+    paymentSaga.followActionGetPaymentWithMoMo(),
+    paymentSaga.followActionGetPaymentWithVNPay(),
   ]);
 }

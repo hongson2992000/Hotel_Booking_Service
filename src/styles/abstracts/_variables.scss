@@ -143,6 +143,7 @@ $hs-color-grey: #bcbcb1 !default;
 $hs-color-black-grey: #888177 !default;
 $hs-color-grey-6: rgba(30, 30, 30, 0.6) !default;
 $hs-color-solid-dark: #000000 !default;
+$hs-color-solid-red: #ff0000 !default;
 //  array of color
 $hs-colors: (
   "light-yellow": $hs-color-light-yellow,
@@ -159,4 +160,5 @@ $hs-colors: (
   "solid-dark": $hs-color-solid-dark,
   "dark-low": $hs-color-dark-low,
   "grey-6": $hs-color-grey-6,
+  "solid-red": $hs-color-solid-red,
 );

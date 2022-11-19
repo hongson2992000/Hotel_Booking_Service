@@ -15,7 +15,7 @@ export class BaseServices {
       url: `${DOMAIN}/${url}`,
       method: "POST",
       data: model,
-      headers: { Authorization: "Bearer " + localStorage.getItem(TOKEN) },
+      // headers: { Authorization: "Bearer " + localStorage.getItem(TOKEN) },
     });
   };
   delete = (url, model) => {
@@ -44,7 +44,7 @@ export class BaseServices {
       headers: {
         Authorization:
           "Bearer " +
-          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifSx7ImF1dGhvcml0eSI6IlJPTEVfVVNFUiJ9XSwiaWF0IjoxNjY1MjA1NzkwLCJleHAiOjE2NjUyMDkzOTB9.o26YuXLrdALALR-ieXyZ6y6gmDE5FBsFg5UXQ6LDvY4"
+          "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifSx7ImF1dGhvcml0eSI6IlJPTEVfVVNFUiJ9XSwiaWF0IjoxNjY1MjA1NzkwLCJleHAiOjE2NjUyMDkzOTB9.o26YuXLrdALALR-ieXyZ6y6gmDE5FBsFg5UXQ6LDvY4",
       },
     });
   };

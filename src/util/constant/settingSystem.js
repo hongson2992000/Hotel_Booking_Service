@@ -20,6 +20,10 @@ export const CONSTANT = {
 
   HOTEL_NAME: "5 Men Hotel",
 
+  ROOM_VALIDATE: "/RoomValidate",
+
+  NAV_HIDE_ITEMS: [{ name: "Kiểm Tra Phòng Trống", link: "/RoomValidate" }],
+
   NAV_ITEMS: [
     {
       name: "TRANG CHỦ",

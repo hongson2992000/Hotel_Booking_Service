@@ -1,12 +1,20 @@
 import classNames from "classnames";
 import React from "react";
+import { useRef } from "react";
 import { useCallback } from "react";
 import { useState, useEffect } from "react";
-import { formatPrice } from "../../../util/utilities/utils";
+import swal from "sweetalert";
+import { formatPrice, generateId } from "../../../util/utilities/utils";
 import AirPortShuttleService from "../AirPortShuttleService/AirPortShuttleService";
 import CustomerInfo from "../CustomerInfo/CustomerInfo";
 import ListRoomAvailability from "../ListRoomAvailability/ListRoomAvailability";
 import Styles from "./InfoRoomAvailability.module.scss";
+import MomoImage from "../../../assets/images/momo.png";
+import VNPayImage from "../../../assets/images/VNPay.png";
+import { useDispatch, useSelector } from "react-redux";
+import { PaymentWithVNPayState$ } from "../../../redux/selectors/PaymentSelector";
+import * as paymentAction from "../../../redux/actions/PaymentAction";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function RoomAvailability({
   count,
@@ -17,15 +25,24 @@ export default function RoomAvailability({
   listRoomAvailability,
   roomSelect,
   setRoomSelect,
+  tab,
+  setTab,
 }) {
-  const [tab, setTab] = useState(1);
   const [arrayChecked, setArrayChecked] = useState([]);
   const [arrayCheckedAirport, setArrayCheckedAirport] = useState({
     id: 0,
     checked: "",
   });
+  const [check, setCheck] = useState("later");
   const [areaRequire, setAreaRequire] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
+  const [acceptPolicy, setAcceptPolicy] = useState(false);
+
+  const emailRef = useRef(null);
+  const confirmEmailRef = useRef(null);
+  const nameRef = useRef(null);
+  const phoneRef = useRef(null);
 
   const handleClickRoom = (id, name, priceByDate, defaultPrice, isSelected) => {
     const price = priceByDate ? priceByDate.price : defaultPrice;
@@ -51,6 +68,7 @@ export default function RoomAvailability({
       price += airPortPrice.price;
     }
     setTotalPrice(price);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roomSelect, arrayCheckedAirport]);
 
   const getCurrentRoomInfo = (index) => {
@@ -100,11 +118,30 @@ export default function RoomAvailability({
 
   const handleBackButton = () => {
     if (tab === 2) {
-      window.location.reload(true);
+      swal({
+        title: "Are you sure?",
+        text: "Are you sure to change date?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          setTab(1);
+          setRoomSelect([]);
+        }
+      });
     }
     if (tab === 3) {
       setTab(2);
     }
+  };
+
+  const handleRemoveRoom = () => {
+    if (roomSelect.length === 1) {
+      setTab(1);
+    }
+
+    setRoomSelect(roomSelect.slice(0, -1));
   };
 
   useEffect(() => {
@@ -120,6 +157,69 @@ export default function RoomAvailability({
   useEffect(() => {
     getTotalPrice();
   }, [getTotalPrice]);
+
+  const dispatch = useDispatch();
+  const payment = useSelector(PaymentWithVNPayState$);
+
+  const handlePaymentMomo = () => {
+    if (!acceptPolicy) {
+      swal({
+        title: "Announcement!",
+        text: "You need to accept a policy to execute the payment",
+        icon: "error",
+        button: "Understand",
+      });
+    } else {
+      // dispatch(
+      //   paymentAction.getPaymentWithVNPay.getPaymentWithVNPayRequest({
+      //     vnp_amount: totalPrice,
+      //     vnp_IpAddr: "127.0.0.1",
+      //     vnp_Locale: "vi",
+      //     vnp_OrderInfo: "Payment",
+      //   })
+      // );
+    }
+  };
+
+  useEffect(() => {
+    if (payment && Object.keys(payment).length !== 0) {
+      window.open(payment.url, "_blank");
+      dispatch(paymentAction.getPaymentWithVNPay.removePaymentWithVNPay());
+      navigate("/home");
+    }
+  }, [payment]);
+
+  const handlePaymentVNPay = () => {
+    if (!acceptPolicy) {
+      swal({
+        title: "Announcement!",
+        text: "You need to accept a policy to execute the payment",
+        icon: "error",
+        button: "Understand",
+      });
+    } else {
+      dispatch(
+        paymentAction.getPaymentWithVNPay.getPaymentWithVNPayRequest({
+          vnp_amount: totalPrice,
+          vnp_IpAddr: "127.0.0.1",
+          vnp_Locale: "vi",
+          vnp_OrderInfo: "Payment",
+        })
+      );
+    }
+  };
+
+  const handlePayment = () => {
+    if (!acceptPolicy) {
+      swal({
+        title: "Announcement!",
+        text: "You need to accept a policy to execute the payment",
+        icon: "error",
+        button: "Understand",
+      });
+    } else {
+    }
+  };
 
   return (
     <div className={classNames("hs-bg-dark col-12", Styles.RoomAvailability)}>
@@ -260,15 +360,177 @@ export default function RoomAvailability({
             </>
           )}
           {tab === 3 && (
-            <CustomerInfo
-              hotel={hotelInfo}
-              dateArray={arrayDate}
-              roomSelect={roomSelect}
-              count={count}
-              backCb={handleBackButton}
-              totalPrice={totalPrice}
-              areaRequire={areaRequire}
-            />
+            <>
+              <CustomerInfo
+                hotel={hotelInfo}
+                dateArray={arrayDate}
+                roomSelect={roomSelect}
+                count={count}
+                backCb={handleBackButton}
+                totalPrice={totalPrice}
+                removeRoomCb={handleRemoveRoom}
+                areaRequire={areaRequire}
+                airSportList={airportShuttleList}
+                arrayCheckedAirport={arrayCheckedAirport}
+              />
+              <div className="hs-bg-dark-9 hs-pb-48 hs-px-32 d-flex text-md hs-mb-32">
+                <div className="col-5">
+                  <div className="text-lg hs-text-white hs-py-24">
+                    Thông Tin Khách
+                  </div>
+                  <div className="d-flex">
+                    <div className="hs-text-dark-grey">Địa chỉ email </div>
+                    <div className="hs-px-4 hs-text-solid-red text-sm">*</div>
+                  </div>
+                  <div className="hs-py-8">
+                    <input
+                      type="text"
+                      className={Styles.TextContainer}
+                      required={true}
+                      ref={emailRef}
+                      onChange={(e) => e.target.value}
+                    />
+                  </div>
+                  <div className="d-flex">
+                    <div className="hs-text-dark-grey">
+                      Nhập Lại Địa chỉ email{" "}
+                    </div>
+                    <div className="hs-px-4 hs-text-solid-red text-sm">*</div>
+                  </div>
+                  <div className="hs-py-8">
+                    <input
+                      type="text"
+                      className={Styles.TextContainer}
+                      required={true}
+                      ref={confirmEmailRef}
+                      onChange={(e) => e.target.value}
+                    />
+                  </div>
+                  <div className="d-flex">
+                    <div className="hs-text-dark-grey">Họ và Tên</div>
+                    <div className="hs-px-4 hs-text-solid-red text-sm">*</div>
+                  </div>
+                  <div className="hs-py-8">
+                    <input
+                      type="text"
+                      className={Styles.TextContainer}
+                      required={true}
+                      ref={nameRef}
+                      onChange={(e) => e.target.value}
+                    />
+                  </div>
+                  <div className="d-flex">
+                    <div className="hs-text-dark-grey">Số điện thoại </div>
+                  </div>
+                  <div className="hs-py-8">
+                    <input
+                      type="text"
+                      className={Styles.TextContainer}
+                      ref={phoneRef}
+                      onChange={(e) => e.target.value}
+                    />
+                  </div>
+                </div>
+                <div className="col-1 hs-my-32 hs-border-right-solid-dark"></div>
+                <div className="col-6">
+                  <div className="text-lg hs-text-white hs-py-24">
+                    Thông tin thanh toán
+                  </div>
+                  <div className="d-flex text-md hs-text-white hs-pb-24">
+                    <div className="d-flex ">
+                      <input
+                        className="hs-pr-16"
+                        type="checkbox"
+                        checked={check === "later" ? true : false}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setCheck("later");
+                          }
+                        }}
+                      />
+                      Thanh toán sau
+                    </div>
+                    <div className="d-flex hs-px-24">
+                      <input
+                        className="hs-px-16"
+                        type="checkbox"
+                        checked={check === "online" ? true : false}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setCheck("online");
+                          }
+                        }}
+                      />
+                      Thanh toán trực tuyến
+                    </div>
+                  </div>
+                  {check === "online" && (
+                    <div className="d-flex text-md hs-text-white hs-pb-16 col-12">
+                      <input
+                        type="checkbox"
+                        className="col-auto"
+                        checked={acceptPolicy}
+                        onChange={(e) => setAcceptPolicy(e.target.checked)}
+                      />
+                      <span>
+                        Khi lựa chọn đặt phòng, chúng tôi đã đồng ý và chấp nhận
+                        khoản
+                        <span className="hs-text-dark-brown hs-px-4">
+                          chính sách bảo mật
+                        </span>
+                      </span>
+                    </div>
+                  )}
+                  <div
+                    className={classNames(
+                      "d-flex",
+                      Styles.payment,
+                      check === "later" && Styles.overlay
+                    )}
+                  >
+                    <img
+                      className="hs-mr-32 button"
+                      src={MomoImage}
+                      alt="momo"
+                      onClick={handlePaymentMomo}
+                    />
+                    <img
+                      className="hs-mr-32 button"
+                      src={VNPayImage}
+                      alt="vnPay"
+                      onClick={handlePaymentVNPay}
+                    />
+                  </div>
+                </div>
+              </div>
+              {check === "later" && (
+                <>
+                  <div className="d-flex text-md hs-text-white hs-py-32 col-12">
+                    <input
+                      type="checkbox"
+                      className="col-auto"
+                      checked={acceptPolicy}
+                      onChange={(e) => setAcceptPolicy(e.target.checked)}
+                    />
+                    <p>
+                      Khi lựa chọn đặt phòng, chúng tôi đã đồng ý và chấp nhận
+                      khoản
+                    </p>
+                    <p className="hs-text-dark-brown hs-px-4">
+                      chính sách bảo mật
+                    </p>
+                  </div>
+                  <div className="d-flex justify-content-center hs-pb-32">
+                    <p
+                      className="button hs-text-white text-center text-lg hs-bg-dark-brown w-25 hs-py-16"
+                      onClick={handlePayment}
+                    >
+                      Đặt Phòng
+                    </p>
+                  </div>
+                </>
+              )}
+            </>
           )}
         </div>
         <div

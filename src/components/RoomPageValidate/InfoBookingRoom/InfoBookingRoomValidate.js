@@ -4,29 +4,23 @@ import { useState } from "react";
 import SubRoomInfoBooking from "../SubRoomInfoBooking/SubRoomInfoBooking";
 import Styles from "./InfoBookingRoomValidate.module.scss";
 import { DateRangePicker } from "react-dates";
-import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
 import "react-dates/initialize";
 import { useCallback } from "react";
 import "./styles.css";
 import swal from "sweetalert";
-import { useNavigate } from "react-router-dom";
 
 export default function InfoBookingRoomValidate({
   handleApplyRoomCb,
   arrayDate,
+  setDateArray,
   numOfPerson,
   roomSelect,
+  handleApplyDate,
 }) {
   const [count, setCount] = useState([{ adult: numOfPerson, child: 0 }]);
   const [isOpen, setOpen] = useState(false);
   const [focusInput, setFocusInput] = useState(null);
-  const [dateArray, setDateArray] = useState({
-    startDate: moment(arrayDate.startDate),
-    endDate: moment(arrayDate.endDate),
-  });
-
-  const navigate = useNavigate();
 
   const handleAddMoreRoom = () => {
     setCount([...count, { adult: 1, child: 0 }]);
@@ -51,32 +45,6 @@ export default function InfoBookingRoomValidate({
         }
       })
     );
-  };
-
-  const handleOnClose = () => {
-    const currentNumOfPerson = roomSelect.findIndex(
-      (x) => x.isSelected === false
-    );
-    if (currentNumOfPerson === -1 && roomSelect.length === count.length) {
-      swal({
-        title: "Are you sure?",
-        text: "Are you sure to change date?",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      }).then((willDelete) => {
-        if (willDelete) {
-          const numOfPerson = countPerson();
-          navigate("/roomValidate", {
-            state: {
-              dateCheckIn: dateArray.startDate.format("DD/MM/yyyy"),
-              dateCheckout: dateArray.startDate.format("DD/MM/yyyy"),
-              numOfPerson: numOfPerson,
-            },
-          });
-        }
-      });
-    }
   };
 
   const handleSetChildByIndex = (index, child) => {
@@ -104,7 +72,7 @@ export default function InfoBookingRoomValidate({
           child={person.child}
           setAdultCb={handleSetAdultByIndex}
           setChildCb={handleSetChildByIndex}
-          dateArray={dateArray}
+          dateArray={arrayDate}
         />
       );
     });
@@ -131,16 +99,16 @@ export default function InfoBookingRoomValidate({
         <div className="col-6 d-flex justify-content-end hs-px-32 hs-border-right-dark-grey">
           <i className="fa-solid fa-calendar-days hs-text-dark-brown text-lg"></i>
           <DateRangePicker
-            endDate={dateArray.endDate}
+            endDate={arrayDate.endDate}
             endDateId="endDate"
             focusedInput={focusInput}
             isOutsideRange={() => null}
             onDatesChange={handleSetDateRange}
             onFocusChange={handleFocusChange}
-            startDate={dateArray.startDate}
+            startDate={arrayDate.startDate}
             startDateId="startDate"
             hideKeyboardShortcutsPanel={true}
-            onClose={handleOnClose}
+            minimumNights={1}
           />
           <i className="fa-solid fa-sort-down hs-text-dark-grey text-lg"></i>
         </div>
@@ -178,18 +146,28 @@ export default function InfoBookingRoomValidate({
                 </div>
               </div>
               {renderDropdown()}
-              <div className={classNames("hs-m-16", Styles.roomButtonAdd)}>
+              <div
+                className={classNames(
+                  "hs-m-16",
+                  Styles.roomButtonAdd,
+                  count.length === 3 && "d-none"
+                )}
+              >
                 <div
                   className={classNames(
-                    "hs-py-8 hs-px-16 hs-bg-dark-9 hs-text-dark-brown text-center button",
-                    count.length === 3 && "d-none"
+                    "hs-py-8 hs-px-16 hs-bg-dark-9 hs-text-dark-brown text-center button"
                   )}
                   onClick={handleAddMoreRoom}
                 >
                   + Thêm phòng
                 </div>
               </div>
-              <div className="d-flex justify-content-end hs-px-32 hs-pb-32">
+              <div
+                className={classNames(
+                  "d-flex justify-content-end hs-px-32 hs-pb-32",
+                  count.length === 3 && "hs-py-24"
+                )}
+              >
                 <div
                   className={classNames(
                     "hs-text-dark-brown text-center hs-px-32 d-flex align-item-center button"
@@ -204,7 +182,7 @@ export default function InfoBookingRoomValidate({
                   )}
                   onClick={() => {
                     setOpen(false);
-                    handleApplyRoomCb(dateArray, count);
+                    handleApplyRoomCb(count);
                   }}
                 >
                   Áp dụng

@@ -21,11 +21,11 @@ import { checkDate } from "../util/utilities/utils";
 export default function RoomPageCheckValidate() {
   const [count, setCount] = useState([{ adult: 1, child: 0 }]);
   const [roomSelect, setRoomSelect] = useState([]);
-
+  const [tab, setTab] = useState(1);
   const location = useLocation();
   const [arrayDate, setArrayDate] = useState({
-    startDate: location.state.dateCheckIn,
-    endDate: location.state.dateCheckout,
+    startDate: moment(location.state.dateCheckIn),
+    endDate: moment(location.state.dateCheckout),
   });
   const dispatch = useDispatch();
   const airportShuttle = useSelector(ServiceByCategoryIdState$);
@@ -33,9 +33,9 @@ export default function RoomPageCheckValidate() {
   const hotelInfo = useSelector(HotelByIdState$);
   const listRoomAvailability = useSelector(RoomAvailabilityState$);
 
-  const handleApplyRoom = (dateArray, count) => {
+  const handleApplyRoom = (count) => {
     setCount(count);
-    setArrayDate(dateArray);
+    setTab(1);
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function RoomPageCheckValidate() {
           }`
         )
       );
-    } else if (roomSelect.length < count.length) {
+    } else if (roomSelect.length < count.length && tab < 3) {
       const roomIndex = roomSelect.length - count.length + count.length;
       dispatch(
         actions.getRoomAvailability.getRoomAvailabilityRequest(
@@ -72,7 +72,7 @@ export default function RoomPageCheckValidate() {
         )
       );
     }
-  }, [roomSelect, count, arrayDate]);
+  }, [roomSelect, count]);
 
   useEffect(() => {
     dispatch(
@@ -101,6 +101,8 @@ export default function RoomPageCheckValidate() {
         arrayDate={arrayDate}
         numOfPerson={location.state.numOfPerson}
         roomSelect={roomSelect}
+        setDateArray={setArrayDate}
+        handleApplyDate={handleApplyRoom}
       />
       <RoomAvailability
         count={count}
@@ -111,6 +113,8 @@ export default function RoomPageCheckValidate() {
         listRoomAvailability={listRoomAvailability}
         roomSelect={roomSelect}
         setRoomSelect={setRoomSelect}
+        tab={tab}
+        setTab={setTab}
       />
     </div>
   );
