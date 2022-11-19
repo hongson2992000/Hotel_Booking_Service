@@ -3,15 +3,12 @@ import HomePage from "./pages/HomePage";
 import RoomPage from "./pages/RoomPage";
 import { Routes, Route } from "react-router-dom";
 import IntroducePage from "./pages/IntroducePage";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import Navigation from "./components/HomePage/Navigation/Navigation";
 import Footer from "./components/Footer/Footer/Footer";
 import FooterCopyright from "./components/Footer/FooterCopyright/FooterCopyright";
 import NewsComponent from "./components/News/NewsComponent";
 import ContactPage from "./pages/ContactPage";
 import RoomTypeDetail from "./pages/RoomTypeDetail";
-// import Header from "./components/HomePage/Header/Header";
 import ArrowButton from "./components/HomePage/ArrowButton/ArrowButton";
 import ServicePage from "./pages/ServicePage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
@@ -19,33 +16,18 @@ import Loading from "./components/Loading/Loading";
 import NotFoundPage from "./components/NotFoundPage/NotFoundPage";
 import { loadingState$ } from "./redux/selectors/LoadingSelector";
 import { useSelector } from "react-redux";
-import RoomPageAvailability from "./pages/RoomPageAvailability";
+import RoomPageCheckValidate from "./pages/RoomPageCheckValidate";
 
 function App() {
-  const location = useLocation();
-  const [currentPath, setCurrentPath] = useState();
-
-  useEffect(() => {
-    setCurrentPath(location.pathname);
-    // checkHomePage()
-  }, [location]);
-
-  const checkHomePage = () => {
-    if (currentPath === "/" || currentPath === "/home") {
-      return true;
-    }
-
-    return false;
-  };
   let isLoading = useSelector(loadingState$);
   return (
     <div className="App">
-      {isLoading ? <Loading/> :<Navigation/>}
+      {isLoading ? <Loading /> : <Navigation />}
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route exact path="/room" element={<RoomPage />} />
-        <Route exact path="/roomValidate" element={<RoomPageAvailability/>}/>
+        <Route exact path="/RoomValidate" element={<RoomPageCheckValidate />} />
         <Route exact path="/roomTypeDetail" element={<RoomTypeDetail />} />
         <Route exact path="/introduce" element={<IntroducePage />} />
         <Route exact path="/news" element={<NewsComponent />} />

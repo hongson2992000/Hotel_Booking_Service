@@ -6,7 +6,8 @@ import {
 } from "../../util/common/LoadingConstant";
 import { STATUS_CODE } from "../../util/constant/settingSystem";
 import * as actions from "../actions/RoomTypeAction";
-function* getAllRoomType(action) {
+
+function* getAllRoomType() {
   try {
     yield put({
       type: DISPLAY_LOADING,
